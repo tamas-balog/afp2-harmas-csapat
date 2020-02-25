@@ -2,4 +2,4 @@
 
 ## UML diagrams
 
-![Image description](documentation/usecase.png)
+![Image description](https://github.com/TeljesenMindegy/afp2-harmas-csapat/blob/master/documentation/usecase.png)
