@@ -1,6 +1,8 @@
 const faker = require('faker');
 const fs = require('fs');
 
+
+
 function generateIngredient() {
     return {
         name : faker.lorem.word(),
@@ -30,12 +32,21 @@ for (let i = 0; i < ALLERGEN_COUNT; i++) {
 }
 
 function PizzaSearch() {
+    let ingredientsList = [];
+    for (let i = 0; i < (Math.random() * 5) + 1; i++) {
+        ingredientsList[i] = faker.random.arrayElement(ingredients);
+    }
+    let allergensList = [];
+    for (let i = 0; i < (Math.random() * 5) + 1; i++) {
+        allergensList[i] = faker.random.arrayElement(allergens);
+    }
+
     let Pizza = {
         pizzaId : faker.random.uuid(),
         pizzaName : faker.lorem.word(),
         pizzaPrice : faker.random.number(50),
-        ingredients : [faker.random.arrayElement(ingredients)],
-        allergens : [faker.random.arrayElement(allergens)]
+        ingredients : ingredientsList,
+        allergens : allergensList
     }
     return Pizza;
 }
@@ -48,7 +59,8 @@ for (let i = 0; i < PIZZA_COUNT; i++) {
 
 
 let db = (
-    pizzas = pizzas, ingredients = ingredients, allergens = allergens
+    pizzas = pizzas
 )
 
 fs.writeFileSync('D:/Faker/pizza_search.json', JSON.stringify((db)));
+//átnevezni a mappa utat
