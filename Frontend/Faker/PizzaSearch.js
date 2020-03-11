@@ -31,6 +31,7 @@ for (let i = 0; i < ALLERGEN_COUNT; i++) {
 
 function PizzaSearch() {
     let Pizza = {
+        pizzaId : faker.random.uuid(),
         pizzaName : faker.lorem.word(),
         pizzaPrice : faker.random.number(50),
         ingredients : [faker.random.arrayElement(ingredients)],
@@ -43,16 +44,11 @@ let pizzas = [];
 const PIZZA_COUNT = 100;
 for (let i = 0; i < PIZZA_COUNT; i++) {
     pizzas[i] = PizzaSearch();
-    pizzas[i]['pizzaId'] = i;
 }
 
-function IngredientSearch() {
-    return [faker.random.arrayElement(pizzas)];
-}
 
 let db = (
     pizzas = pizzas, ingredients = ingredients, allergens = allergens
 )
 
-console.log(IngredientSearch());
-fs.writeFileSync('D:/Faker/pizza_database.json', JSON.stringify((db)));
+fs.writeFileSync('D:/Faker/pizza_search.json', JSON.stringify((db)));

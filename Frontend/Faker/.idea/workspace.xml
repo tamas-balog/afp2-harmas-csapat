@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8785ab7e-4fa6-4466-9545-5e0209464f49" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8785ab7e-4fa6-4466-9545-5e0209464f49" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +15,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1YrTn7An8PDausAmyL5YyEwOSgN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -31,7 +28,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="10.16.3" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -41,9 +38,9 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Node.js.UpdateOrderList.js">
+  <component name="RunManager" selected="Node.js.PizzaSearch.js">
     <configuration name="Faker_Pizza.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Faker_Pizza.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -53,11 +50,15 @@
     <configuration name="GetOrderList.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/GetOrderList.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
+    <configuration name="PizzaSearch.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/PizzaSearch.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
     <configuration name="UpdateOrderList.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/UpdateOrderList.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.PizzaSearch.js" />
         <item itemvalue="Node.js.UpdateOrderList.js" />
         <item itemvalue="Node.js.GetOrderList.js" />
         <item itemvalue="Node.js.Faker_Pizza.js" />
@@ -80,6 +81,8 @@
       <workItem from="1583862468143" duration="650000" />
       <workItem from="1583865872490" duration="3652000" />
       <workItem from="1583871623252" duration="308000" />
+      <workItem from="1583872218282" duration="559000" />
+      <workItem from="1583931436570" duration="479000" />
     </task>
     <servers />
   </component>
@@ -91,6 +94,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1583705629881" />
+    <state x="1045" y="198" key="#UpdateOrderList.js" timestamp="1583931703874">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1045" y="198" key="#UpdateOrderList.js/0.0.1920.1040@0.0.1920.1040" timestamp="1583931703874" />
     <state width="1259" height="115" key="GridCell.Tab.0.bottom" timestamp="1583871174487">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -111,10 +118,10 @@
     </state>
     <state width="1259" height="115" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1583871174487" />
     <state width="936" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583863194964" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1583699993937">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1583931521022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583699993937" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583931521022" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583758376265">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
