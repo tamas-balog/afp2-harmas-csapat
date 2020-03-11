@@ -22,9 +22,9 @@
 
 ```json
 {
-    "staffmember":{
+    "staffMember":{
         "username":"String",
-        "password":"String",
+        "password":"String"
     }
 }
 ```
@@ -96,7 +96,7 @@
         <td>
         curl --header "Content-Type: application/json" \<br>
         --request POST \<br>
-        --data '{"user":{"name":"István Kovács","city":"Eger","address":"4. Leányka street","phoneNumber":"06709583264","comments":"The bell does not work"}}' \<br>
+        --data '{"user":{"name":"John Smith","city":"New York","address":"4. Wall street","phoneNumber":"06709583264","comments":"The bell does not work"}}' \<br>
         http://pizzaoldal.hu/users
         </td>
     </tr>
@@ -115,7 +115,7 @@
     </tr>
     <tr>
         <td>Path</td>
-        <td>/users/{userId}/orders</td>
+        <td>/users/{user-id}/orders</td>
     </tr>
     <tr>
         <td>
@@ -160,7 +160,7 @@
     </tr>
     <tr>
         <td>Description</td>
-        <td>Customer can search pizza by name</td>
+        <td>Customer can search pizzas.</td>
     </tr>
     <tr>
         <td>Request</td>
@@ -168,7 +168,7 @@
     </tr>
     <tr>
         <td>Path</td>
-        <td>/pizzas/{pizzaName}</td>
+        <td>/pizzas</td>
     </tr>
     <tr>
         <td>Response OK</td>
@@ -177,7 +177,8 @@
 
 ```json
 {
-   "pizza":{
+   "pizzas":[
+      {
       "pizzaId":"UUID",
       "pizzaName":"String",
       "pizzaPrice":"Int",
@@ -193,7 +194,8 @@
             "name":"String"
          }
       ]
-   }
+      }
+   ]
 }
 ```
 </td>
@@ -205,64 +207,7 @@
     <tr>
         <td>Example</td>
         <td>
-        curl --request GET http://pizzaoldal.hu/pizzas/margherita
-        </td>
-    </tr>
-
-<table>
-    <tr>
-        <th colspan="2">IngredientSearch</th>
-    </tr>
-    <tr>
-        <td>Description</td>
-        <td>Customer can search pizza ingredients.</td>
-    </tr>
-    <tr>
-        <td>Request</td>
-        <td>GET</td>
-    </tr>
-    <tr>
-        <td>Path</td>
-        <td>/ingredient/{ingredientName}</td>
-    </tr>
-    <tr>
-        <td>Response OK</td>
-        <td>
-        200
-
-```json
-{
-    "pizzas":[
-        {
-            "pizzaId":"UUID",
-            "pizzaName":"String",
-            "pizzaPrice":"Int",
-            "ingredients":[
-                {
-                    "name":"String",
-                    "amount":"Int"
-                }
-            ],
-            "allergens":[
-                {
-                    "code":"Int",
-                    "name":"String"
-                }
-            ]
-        }
-    ]
-}
-```
-</td>
-    </tr>
-    <tr>
-        <td>Response error</td>
-        <td>404, 500</td>
-    </tr>
-    <tr>
-        <td>Example</td>
-        <td>
-        curl --request GET http://pizzaoldal.hu/pizzas/salmon
+        curl --request GET http://pizzaoldal.hu/pizzas
         </td>
     </tr>
 </table>
@@ -273,7 +218,7 @@
     </tr>
     <tr>
         <td>Description</td>
-        <td>Kitchen staff can get the sheduced order list</td>
+        <td>Kitchen staff can get the scheduled order list</td>
     </tr>
     <tr>
         <td>Request</td>
@@ -281,7 +226,7 @@
     </tr>
     <tr>
         <td>Path</td>
-        <td>/orderlists</td>
+        <td>/order-lists</td>
     </tr>
     <tr>
         <td>Response OK</td>
@@ -291,6 +236,7 @@
 ```json
 {
     "lists":[
+        {
         "listId":"UUID",
         "pizzas":[
             {
@@ -299,6 +245,7 @@
                 "isDone":"Boolean"
             }
         ]
+        }
     ]
 }
 ```
@@ -330,7 +277,7 @@
     </tr>
     <tr>
         <td>Path</td>
-        <td>/orderlists/{order-listid}</td>
+        <td>/order-lists/{order-list-id}</td>
     </tr>
     <tr>
         <td>Request body</td>
