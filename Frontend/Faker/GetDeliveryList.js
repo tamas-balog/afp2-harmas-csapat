@@ -36,4 +36,4 @@ function generateDeliveryList() {
 }
 
 console.log(generateDeliveryList());
-fs.writeFileSync('D:/Faker/GetDeliveryList_database.json', JSON.stringify((generateDeliveryList())));
+fs.writeFileSync('./GetDeliveryList_database.json', JSON.stringify((generateDeliveryList())));

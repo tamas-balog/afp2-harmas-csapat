@@ -33,4 +33,4 @@ function generateOrderList() {
 }
 
 console.log(generateOrderList());
-fs.writeFileSync('D:/Faker/GetOrderList_database.json', JSON.stringify((generateOrderList())));
+fs.writeFileSync('./GetOrderList_database.json', JSON.stringify((generateOrderList())));

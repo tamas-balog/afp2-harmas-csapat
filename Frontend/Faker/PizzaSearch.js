@@ -62,5 +62,4 @@ let db = (
     pizzas = pizzas
 )
 
-fs.writeFileSync('D:/Faker/pizza_search.json', JSON.stringify((db)));
-//átnevezni a mappa utat
+fs.writeFileSync('./pizza_search.json', JSON.stringify((db)));
