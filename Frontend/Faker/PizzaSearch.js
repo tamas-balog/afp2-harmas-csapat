@@ -42,7 +42,7 @@ function PizzaSearch() {
     }
 
     let Pizza = {
-        pizzaId : faker.random.uuid(),
+        id : faker.random.uuid(),
         pizzaName : faker.lorem.word(),
         pizzaPrice : faker.random.number(50),
         ingredients : ingredientsList,
@@ -57,9 +57,4 @@ for (let i = 0; i < PIZZA_COUNT; i++) {
     pizzas[i] = PizzaSearch();
 }
 
-
-let db = (
-    pizzas = pizzas
-)
-
-fs.writeFileSync('./pizza_search.json', JSON.stringify((db)));
+fs.writeFileSync('./pizza_search.json', JSON.stringify({ pizzas:pizzas}));
