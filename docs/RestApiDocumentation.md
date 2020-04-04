@@ -72,6 +72,81 @@
 
 <table>
     <tr>
+        <th colspan="2">GetStaffList</th>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>Manager can list staff members.</td>
+    </tr>
+    <tr>
+        <td>Request</td>
+        <td>GET</td>
+    </tr>
+    <tr>
+        <td>Path</td>
+        <td>/staff</td>
+    </tr>
+    <tr>
+        <td>
+            Response OK
+        </td>
+        <td>
+
+```json
+{
+    "code":200,
+    "data":{
+        "employees":[
+            {
+                "id":"UUID",
+                "clearanceCode":"Int",
+                "name":"String",
+                "email":"String",
+                "password":"String",
+                "position":"String"
+            }
+        ]
+    }
+}
+```
+
+</td>
+    </tr>
+    <tr>
+        <td>Response error</td>
+        <td>
+
+```json
+{
+    "error":{
+        "code":400,
+        "message":"Bad request"
+    }
+}
+```
+
+```json
+{
+    "error":{
+        "code":500,
+        "message":"Internal server error"
+    }
+}
+```
+
+</td>
+    <tr>
+        <td>Example</td>
+        <td>
+        curl --header "Content-Type: application/json" \<br>
+        --request GET \<br>
+        --data '{"code":200,"data":{"employee":[{"id":"UUID","clearanceCode":"Int","name":"String","email":"String","password":"String","position":"String"}]}}' \<br>
+        http://pizzaoldal.hu/staff/register
+        </td>
+    </tr>
+    </tr>
+<table>
+    <tr>
         <th colspan="2">RegisterStaff</th>
     </tr>
     <tr>
@@ -507,7 +582,7 @@
                 "isDelivered":"Boolean",
                 "pizzas":[
                     {
-                        "pizzaName":"String",
+                        "name":"String",
                         "isDone":"Boolean"
                     }
                 ]
@@ -727,8 +802,8 @@
     "data":{
         "deliveries":[
             {
-                "pizzaId":"UUID",
-                "pizzaName":"String",
+                "id":"UUID",
+                "name":"String",
                 "isDelivered":"Boolean",
                 "user":{
                     "name":"String",
