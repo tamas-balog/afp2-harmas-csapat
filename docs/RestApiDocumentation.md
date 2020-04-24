@@ -99,11 +99,12 @@
         "employees":[
             {
                 "id":"UUID",
-                "clearanceCode":"Int",
-                "name":"String",
+                "positionCode":"Int",
+                "firstName":"String",
+                "lastName":"String",
                 "email":"String",
+                "phoneNumber":"String",
                 "password":"String",
-                "position":"String"
             }
         ]
     }
@@ -140,7 +141,7 @@
         <td>
         curl --header "Content-Type: application/json" \<br>
         --request GET \<br>
-        --data '{"code":200,"data":{"employee":[{"id":"UUID","clearanceCode":"Int","name":"String","email":"String","password":"String","position":"String"}]}}' \<br>
+        --data '{"code":200,"data":{"employee":[{"id":"822e4567e89k12d3a4564266554400000","positionCode":"1","firstName":"John","lastName":"Smith","email":"john@gmail.com","phoneNumber":"06201231234","password":"xyz123"}]}}' \<br>
         http://pizzaoldal.hu/staff/register
         </td>
     </tr>
@@ -170,11 +171,12 @@
 ```json
 {
     "id":"UUID",
-    "clearanceCode":"Int",
-    "name":"String",
+    "positionCode":"Int",
+    "firstName":"String",
+    "lastName":"String",
     "email":"String",
+    "phoneNumber":"String",
     "password":"String",
-    "position":"String"
 }
 ```
 
@@ -221,7 +223,7 @@
         <td>
         curl --header "Content-Type: application/json" \<br>
         --request POST \<br>
-        --data '{"id":"822e4567e89k12d3a4564266554400000","clearanceCode":"2","name":"John Smith","email":"john.smith@example.com","password":"xyz123","position":"Cook"}' \<br>
+        --data '{"id":"822e4567e89k12d3a4564266554400000","positionCode":"2","firstName":"John","lastName":"Smith","email":"john.smith@example.com","phoneNumber":"06201231234","password":"xyz123"}' \<br>
         http://pizzaoldal.hu/staff/register
         </td>
     </tr>
@@ -300,90 +302,6 @@
 
 <table>
     <tr>
-        <th colspan="2">CreateUser</th>
-    </tr>
-    <tr>
-        <td>Description</td>
-        <td>Customer can start an order process. The customer have to provide their delivery information.</td>
-    </tr>
-    <tr>
-        <td>Request</td>
-        <td>POST</td>
-    </tr>
-    <tr>
-        <td>Path</td>
-        <td>/register</td>
-    </tr>
-    <tr>
-        <td>
-            Request body
-        </td>
-        <td>
-
-```json
-{
-    "user":{
-        "name":"String",
-        "city":"String",
-        "address":"String",
-        "phoneNumber":"String",
-        "comments":"String"
-    }
-}
-```
-
-</td>
-    </tr>
-    <tr>
-        <td>Response OK</td>
-        <td>
-
-```json
-{
-    "code":200,
-    "message":"User created successfully"
-}
-```
-
-</td>
-    </tr>
-    <tr>
-        <td>Response error</td>
-        <td>
-
-```json
-{
-    "error":{
-        "code":400,
-        "message":"Bad request"
-    }
-}
-```
-
-```json
-{
-    "error":{
-        "code":500,
-        "message":"Internal server error"
-    }
-}
-```
-
-</td>
-    </tr>
-    <tr>
-        <td>Example</td>
-        <td>
-        curl --header "Content-Type: application/json" \<br>
-        --request POST \<br>
-        --data '{"user":{"name":"John Smith","city":"New York","address":"4. Wall street","phoneNumber":"06709583264","comments":"The bell does not work"}}' \<br>
-        http://pizzaoldal.hu/register
-        </td>
-    </tr>
-</table>
-
-<table>
-    <tr>
         <th colspan="2">OrderPizza</th>
     </tr>
     <tr>
@@ -407,7 +325,15 @@
 ```json
 {
     "order":{
-        "userId":"UUID",
+        "user":{
+            "firstName":"String",
+            "lastName":"String",
+            "postalCode":"String",
+            "city":"String",
+            "address":"String",
+            "phoneNumber":"String",
+            "comments":"String"
+        },
         "pizzas":[
             "UUID"
         ]
@@ -459,7 +385,7 @@
         <td>
         curl --header "Content-Type: application/json" \<br>
         --request POST \<br>
-        --data '{"order":{"userId":"123e4567e89b12d3a4564266554400000","pizzas":["822e4567e89k12d3a4564266554400000", "930e4567e89b12d3a4364266554400000"]}}' \<br>
+        --data '{"order":{"user":{"firstName":"John",lastName"Smith","postalCode":"342gb3","city":"New York","address":"4. Wall street","phoneNumber":"06709583264","comments":"The bell does not work"},"pizzas":["822e4567e89k12d3a4564266554400000", "930e4567e89b12d3a4364266554400000"]}}' \<br>
         http://pizzaoldal.hu/users/123e4567e89b12d3a4564266554400000/orders
         </td>
     </tr>
@@ -494,16 +420,11 @@
                 "id":"UUID",
                 "name":"String",
                 "price":"Int",
+                "picture":"String",
                 "ingredients":[
                     {
                         "name":"String",
                         "amount":"Int"
-                    }
-                ],
-                "allergens":[
-                    {
-                        "code":"Int",
-                        "name":"String"
                     }
                 ]
             }
@@ -573,17 +494,18 @@
         "orders":[
             {
                 "user":{
-                    "name":"String",
+                    "firstName":"String",
+                    "lastName":"String",
                     "city":"String",
                     "address":"String",
                     "phoneNumber":"String",
                     "comments":"String"
                 },
-                "isDelivered":"Boolean",
+                "deliveryAt":"DateTime",
                 "pizzas":[
                     {
                         "name":"String",
-                        "isDone":"Boolean"
+                        "preparedAt":"DateTime"
                     }
                 ]
             }
@@ -655,7 +577,7 @@
                     "sequentialNumber":"Int",
                     "id":"UUID",
                     "name":"String",
-                    "isDone":"Boolean"
+                    "PreparedAt":"DateTime"
                 }
             ]
         }
@@ -707,7 +629,7 @@
     </tr>
     <tr>
         <td>Request</td>
-        <td>PUT</td>
+        <td>PATCH</td>
     </tr>
     <tr>
         <td>Path</td>
@@ -721,7 +643,7 @@
 {
     "pizza":{
         "id":"UUID",
-        "isDone":"Boolean"
+        "PreparedAt":"DateTime"
     }
 }
 ```
@@ -769,8 +691,8 @@
         <td>Example</td>
         <td>
         curl --header "Content-Type: application/json" \<br>
-        --request PUT \<br>
-        --data '{"pizza":{"id":"123e4567e89b12d3a4564266554400000","isDone":true}' \<br>
+        --request PATCH \<br>
+        --data '{"pizza":{"id":"123e4567e89b12d3a4564266554400000","preparedAt":"2020/02/12 11:20"}' \<br>
         http://pizzaoldal.hu/preparation-lists
         </td>
     </tr>
@@ -804,9 +726,11 @@
             {
                 "id":"UUID",
                 "name":"String",
-                "isDelivered":"Boolean",
+                "deliveredAt":"DateTime",
                 "user":{
-                    "name":"String",
+                    "firstName":"String",
+                    "lastName":"String",
+                    "postalCode":"String",
                     "city":"String",
                     "address":"String",
                     "phoneNumber":"String",
@@ -862,7 +786,7 @@
     </tr>
     <tr>
         <td>Request</td>
-        <td>PUT</td>
+        <td>PATCH</td>
     </tr>
     <tr>
         <td>Path</td>
@@ -876,7 +800,7 @@
 {
     "pizza":{
         "id":"UUID",
-        "isDelivered":"Boolean"
+        "deliveredAt":"DateTime"
     }
 }
 ```
@@ -924,8 +848,8 @@
         <td>Example</td>
         <td>
         curl --header "Content-Type: application/json" \<br>
-        --request PUT \<br>
-        --data '{"pizza":{"id":"123e4567e89b12d3a4564266554400000","isDelivered":true}' \<br>
+        --request PATCH \<br>
+        --data '{"pizza":{"id":"123e4567e89b12d3a4564266554400000","deliveredAt":"2020/02/10 12:22"}' \<br>
         http://pizzaoldal.hu/delivery-lists
         </td>
     </tr>
@@ -1021,7 +945,7 @@
     </tr>
     <tr>
         <td>Request</td>
-        <td>PUT</td>
+        <td>PATCH</td>
     </tr>
     <tr>
         <td>Path</td>
@@ -1070,7 +994,7 @@
         <td>Example</td>
         <td>
         curl --header "Content-Type: application/json" \<br>
-        --request PUT \<br>
+        --request PATCH \<br>
         --data '{"chosen":{"preparationAlgorithmId":"930e4567e89b12d3a4364266554400000","deliveryAlgorithmId":"822e4567e89k12d3a4564266554400000"}}' \<br>
         http://pizzaoldal.hu/algorithms
         </td>
