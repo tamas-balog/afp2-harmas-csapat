@@ -57,4 +57,4 @@ for (let i = 0; i < PIZZA_COUNT; i++) {
     pizzas[i] = PizzaSearch();
 }
 
-fs.writeFileSync('./pizza_search.json', JSON.stringify({ pizzas:pizzas}));
+fs.writeFileSync('./pizzas.json', JSON.stringify({ pizzas:pizzas}));
