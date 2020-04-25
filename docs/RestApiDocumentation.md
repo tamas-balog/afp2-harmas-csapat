@@ -393,6 +393,91 @@
 
 <table>
     <tr>
+        <th colspan="2">RecordPizza</th>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>Manager can record a pizza to the database.</td>
+    </tr>
+    <tr>
+        <td>Request</td>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <td>Path</td>
+        <td>/pizzas/record</td>
+    </tr>
+    <tr>
+        <td>
+            Request body
+        </td>
+        <td>
+
+```json
+{
+    "name":"String",
+    "price":"Int",
+    "picture":"String",
+    "ingredients":[
+        {
+            "name":"String"
+        }
+    ]
+}
+```
+
+</td>
+    </tr>
+    <tr>
+        <td>Response OK</td>
+        <td>
+
+```json
+{
+    "code":200,
+    "message":"Pizza added successfully"
+}
+```
+
+</td>
+    </tr>
+    <tr>
+        <td>Response error</td>
+        <td>
+
+```json
+{
+    "error":{
+        "code":400,
+        "message":"Bad request"
+    }
+}
+```
+
+```json
+{
+    "error":{
+        "code":500,
+        "message":"Internal server error"
+    }
+}
+```
+
+</td>
+    <tr>
+        <td>Example</td>
+        <td>
+        curl --header "Content-Type: application/json" \<br>
+        --request POST \<br>
+        --data '{"name":"margherita","price":1500,"picture":"pictures/sfasf342adsfs454","ingredients":[{"name":"sajt"},{"name":"sonka"}]}' \<br>
+        http://pizzaoldal.hu/pizzas/record
+        </td>
+    </tr>
+    </tr>
+</table>
+
+<table>
+    <tr>
         <th colspan="2">PizzaSearch</th>
     </tr>
     <tr>
@@ -424,7 +509,6 @@
                 "ingredients":[
                     {
                         "name":"String",
-                        "amount":"Int"
                     }
                 ]
             }
