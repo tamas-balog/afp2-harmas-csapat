@@ -1,12 +1,9 @@
 const faker = require('faker');
 const fs = require('fs');
 
-
-
 function generateIngredient() {
     return {
-        name : faker.lorem.word(),
-        amount : faker.random.number(1000)
+        name : faker.lorem.word()
     }
 }
 
@@ -17,36 +14,17 @@ for (let i = 0; i < INGREDIENT_COUNT; i++) {
     ingredients[i]['id'] = i;
 }
 
-function generateAllergen() {
-    let Allergen = {
-        name : faker.lorem.word()
-    }
-    return Allergen;
-}
-
-let allergens = [];
-const ALLERGEN_COUNT = 100;
-for (let i = 0; i < ALLERGEN_COUNT; i++) {
-    allergens[i] = generateAllergen();
-    allergens[i]['code'] = i;
-}
-
 function PizzaSearch() {
     let ingredientsList = [];
     for (let i = 0; i < (Math.random() * 5) + 1; i++) {
         ingredientsList[i] = faker.random.arrayElement(ingredients);
-    }
-    let allergensList = [];
-    for (let i = 0; i < (Math.random() * 5) + 1; i++) {
-        allergensList[i] = faker.random.arrayElement(allergens);
     }
 
     let Pizza = {
         id : faker.random.uuid(),
         pizzaName : faker.lorem.word(),
         pizzaPrice : faker.random.number(50),
-        ingredients : ingredientsList,
-        allergens : allergensList
+        ingredients : ingredientsList
     }
     return Pizza;
 }
@@ -57,4 +35,5 @@ for (let i = 0; i < PIZZA_COUNT; i++) {
     pizzas[i] = PizzaSearch();
 }
 
-fs.writeFileSync('./pizzas.json', JSON.stringify({ pizzas:pizzas}));
+console.log(pizzas);
+fs.writeFileSync('./PizzaSearch_database.json', JSON.stringify({ pizzas:pizzas}));
