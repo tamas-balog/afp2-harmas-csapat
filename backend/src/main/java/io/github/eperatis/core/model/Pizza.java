@@ -1,5 +1,6 @@
 package io.github.eperatis.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,4 +25,7 @@ public class Pizza {
         joinColumns = @JoinColumn (name = "pizza_id"),
         inverseJoinColumns = @JoinColumn (name = "ingredient_id"))
     private Collection<Ingredient> ingredients;
+    @ManyToMany(mappedBy = "pizzas")
+    @JsonIgnore
+    private Collection<Order> orders;
 }
