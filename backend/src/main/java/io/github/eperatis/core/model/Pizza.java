@@ -4,11 +4,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.transaction.Transactional;
+import java.util.Collection;
 
 @Entity
+@Table(name = "pizzas")
+@Transactional
 @Getter @Setter @NoArgsConstructor
 public class Pizza {
     @Id
@@ -16,4 +18,10 @@ public class Pizza {
     private Long id;
     private String name;
     private int price;
+    @ManyToMany(cascade = { CascadeType.MERGE })
+    @JoinTable(
+        name = "pizza_ingredient",
+        joinColumns = @JoinColumn (name = "pizza_id"),
+        inverseJoinColumns = @JoinColumn (name = "ingredient_id"))
+    private Collection<Ingredient> ingredients;
 }
