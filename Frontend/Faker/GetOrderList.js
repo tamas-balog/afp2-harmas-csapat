@@ -8,7 +8,7 @@ function generateUser() {
         city : faker.address.city(),
         address : faker.address.zipCode() + " " + faker.address.streetName() + " " +  Math.floor(Math.random() * 99) + 1,
         phoneNumber : faker.phone.phoneNumberFormat(),
-        comments : fasker.lorem.words(5)
+        comments : faker.lorem.words(5)
     }
     return user;
 }

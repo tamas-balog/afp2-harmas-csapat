@@ -21,7 +21,7 @@ function PizzaSearch() {
     }
 
     let Pizza = {
-        id : faker.random.uuid(),
+        id : null,
         pizzaName : faker.lorem.word(),
         pizzaPrice : faker.random.number(50),
         ingredients : ingredientsList
@@ -33,6 +33,7 @@ let pizzas = [];
 const PIZZA_COUNT = 100;
 for (let i = 0; i < PIZZA_COUNT; i++) {
     pizzas[i] = PizzaSearch();
+    pizzas[i]['id'] = i;
 }
 
 console.log(pizzas);

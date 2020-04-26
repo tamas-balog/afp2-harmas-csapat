@@ -16,7 +16,7 @@ function generateUser() {
 
 function generateDelivery(){
     let delivery = {
-        id : faker.random.uuid(),
+        id : null,
         name : faker.name.firstName() + " " + faker.name.lastName(),
         deliveredAt : faker.date.recent(),
         user : generateUser()
@@ -29,6 +29,7 @@ function generateDeliveryList() {
     const DELIVERIES_COUNT = 100;
     for (let i = 0; i < DELIVERIES_COUNT; i++) {
         deliveries[i] = generateDelivery();
+        deliveries[i]['id'] = i;
     }
     return deliveries;
 }
