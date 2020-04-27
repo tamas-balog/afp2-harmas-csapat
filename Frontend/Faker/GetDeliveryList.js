@@ -24,15 +24,14 @@ function generateDelivery(){
     return delivery;
 }
 
-function generateDeliveryList() {
-    let deliveries = [];
-    const DELIVERIES_COUNT = 100;
-    for (let i = 0; i < DELIVERIES_COUNT; i++) {
-        deliveries[i] = generateDelivery();
-        deliveries[i]['id'] = i;
-    }
-    return deliveries;
+
+let deliveries = [];
+const DELIVERIES_COUNT = 100;
+for (let i = 0; i < DELIVERIES_COUNT; i++) {
+    deliveries[i] = generateDelivery();
+    deliveries[i]['id'] = i;
 }
 
-console.log(generateDeliveryList());
-fs.writeFileSync('./GetDeliveryList_database.json', JSON.stringify((generateDeliveryList())));
+
+console.log(deliveries);
+fs.writeFileSync('./GetOrderList_database.json', JSON.stringify({deliveries:deliveries}));

@@ -36,14 +36,12 @@ function generateOrder(){
     return order;
 }
 
-function generateOrderList() {
-    let orders= [];
-    const ORDERS_COUNT = 100;
-    for (let i = 0; i < ORDERS_COUNT; i++) {
-        orders[i] = generateOrder()
-    }
-    return orders;
+let orders= [];
+const ORDERS_COUNT = 100;
+for (let i = 0; i < ORDERS_COUNT; i++) {
+    orders[i] = generateOrder()
 }
 
-console.log(generateOrderList());
-fs.writeFileSync('./GetOrderList_database.json', JSON.stringify((generateOrderList())));
+
+console.log(orders);
+fs.writeFileSync('./GetOrderList_database.json', JSON.stringify({orders:orders}));

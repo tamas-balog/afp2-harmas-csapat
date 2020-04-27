@@ -14,15 +14,14 @@ function generateEmployee() {
     return Employee;
 }
 
-function generateEmployeesList() {
-    let employees = [];
-    const EMPLOYEES_COUNT = 100;
-    for (let i = 0; i < EMPLOYEES_COUNT; i++) {
-        employees[i] = generateEmployee();
-        employees[i]['id'] = i;
-    }
-    return employees;
+
+let employees = [];
+const EMPLOYEES_COUNT = 100;
+for (let i = 0; i < EMPLOYEES_COUNT; i++) {
+    employees[i] = generateEmployee();
+    employees[i]['id'] = i;
 }
 
-console.log(generateEmployeesList());
-fs.writeFileSync('./GetStaffList_database.json', JSON.stringify((generateEmployeesList())));
+
+console.log(employees);
+fs.writeFileSync('./GetOrderList_database.json', JSON.stringify({employees:employees}));
