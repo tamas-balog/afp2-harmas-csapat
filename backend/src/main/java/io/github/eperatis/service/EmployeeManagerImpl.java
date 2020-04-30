@@ -4,6 +4,9 @@ import io.github.eperatis.core.model.Employee;
 import io.github.eperatis.core.sevice.EmployeeManager;
 import io.github.eperatis.dao.EmployeeRepository;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class EmployeeManagerImpl implements EmployeeManager {
 
     private EmployeeRepository repository;
@@ -12,4 +15,10 @@ public class EmployeeManagerImpl implements EmployeeManager {
 
     @Override
     public void registerEmployee(Employee employee) { repository.save(employee); }
+
+    @Override
+    public Collection<Employee> listStaff() {
+        return new ArrayList<Employee>((Collection<? extends Employee>) repository.findAll());
+    }
+
 }

@@ -5,6 +5,8 @@ import io.github.eperatis.core.sevice.EmployeeManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+
 @RestController
 public class EmployeeController {
 
@@ -18,4 +20,7 @@ public class EmployeeController {
     @RequestMapping(value = {"/staff/login"}, method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public void login() {}
+
+    @RequestMapping(value = {"/staff"}, method = RequestMethod.GET)
+    public Collection<Employee> listStaff() { return employeeManager.listStaff(); }
 }

@@ -1,11 +1,8 @@
 package io.github.eperatis.core.model;
 
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Table;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "staff")
