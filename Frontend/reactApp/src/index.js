@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import AdminApp from './components/layouts/adminPage/AdminApp'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <AdminApp />
     </React.StrictMode>,
     document.getElementById('root')
 );
