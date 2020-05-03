@@ -34,4 +34,4 @@ for (let i = 0; i < DELIVERIES_COUNT; i++) {
 
 
 console.log(deliveries);
-fs.writeFileSync('./GetOrderList_database.json', JSON.stringify({deliveries:deliveries}));
+fs.writeFileSync('./GedDeliveryList_database.json', JSON.stringify({deliveries:deliveries}));
