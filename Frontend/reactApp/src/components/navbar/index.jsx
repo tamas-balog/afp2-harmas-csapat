@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import { Router, Route, IndexRoute, BrowserRouter, browserHistory} from 'react-router-dom';
 
 class Navbar extends React.Component{
     render() {
@@ -14,10 +16,16 @@ class Navbar extends React.Component{
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Kezdőlap <span className="sr-only">(current)</span></a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/buyingPage">Vásárlás</a>
+                            <Link to="/testpage">Test Page</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/adminapp">Admin Page</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/pizzasearch">Menu</Link>
                         </li>
                     </ul>
                 </div>
