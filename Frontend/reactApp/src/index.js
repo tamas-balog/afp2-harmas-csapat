@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import AdminApp from './components/layouts/adminPage/AdminApp'
+import HomePage from './components/layouts/HomePage';
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <React.StrictMode>
-        <AdminApp />
+        <App />
     </React.StrictMode>,
     document.getElementById('root')
 );
