@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 
 //Pages
+import Header from "./components/Header";
 import Navbar from "./components/navbar";
 import HomePage from "./components/layouts/HomePage";
 import AdminApp from "./components/layouts/adminPage/AdminApp";
@@ -32,16 +33,19 @@ import Footer from "./components/footer";
 class App extends Component {
     render() {
         return <Router>
+            <Header/>
             <Navbar/>
+            <div style={{width: "60%", marginLeft: "20%", marginRight: "20%"}}>
             <Switch>
             <Route exact path="/" component={HomePage}/>
             <Route exact path="/adminapp" component={AdminApp}/>
             <Route exact path="/pizzasearch" component={PizzaSearch}/>
-                <Route exact path="/pizzasearchres" component={PizzaSearchResult}/>
+            <Route exact path="/pizzasearchres" component={PizzaSearchResult}/>
             <Route exact path="/testpage" component={TestPage}/>
             <Route exact path="/404" component={NotFound}/>
             <Redirect to="/404"/>
             </Switch>
+            </div>
             <Footer/>
         </Router>
         //return <div className="App"><Navbar/>Hey<Footer/></div>;
