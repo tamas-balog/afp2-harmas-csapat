@@ -17,4 +17,4 @@ for (let i = 0; i < PIZZAS_COUNT; i++) {
 
 
 console.log(pizzas);
-fs.writeFileSync('./GetOrderList_database.json', JSON.stringify({pizzas:pizzas}));
+fs.writeFileSync('./GetPreparationList_database.json', JSON.stringify({preppizzas:pizzas}));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Datagrid, TextField} from 'react-admin';
-import { ArrayField, SingleFieldList, ChipField, NumberField, EditButton, Filter, TextInput, ReferenceInput, SelectInput} from 'react-admin';
+import { ArrayField, SingleFieldList, ChipField, NumberField, EditButton, Filter, TextInput} from 'react-admin';
 
 const PizzaFilter = (props) => (
     <Filter {...props}>
