@@ -16,7 +16,7 @@ import jsonServerProvider from 'ra-data-json-server';
 
 function AdminApp() {
     return (
-        <Admin authProvider={authProvider} dataProvider={jsonServerProvider('http://localhost:3002')}>
+        <Admin authProvider={authProvider} dataProvider={jsonServerProvider('http://localhost:3001')}>
             <Resource name="pizzas" list={pizzasList} edit={pizzaEdit} create={pizzaCreate}/>
             <Resource name="employees" list={staffList} edit = {staffEdit} create = {staffCreate}/>
             <Resource name ="deliveries" list={deliveryList} edit ={deliveryEdit} />

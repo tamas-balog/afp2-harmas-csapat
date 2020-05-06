@@ -65,15 +65,14 @@ function Footer() {
 export default Footer;
 
 const FooterContainer = styled.footer`
-    . {
-        
-    }
+    html,body { height:100%; margin: 0; padding: 0 ; flex: 1 0 auto;}
     
     .footer-middle {
         background: #343a40;
         padding-top: 3rem;
+        margin-top: 10%;
         color: #fff;
-        position: absolute;
+        position: relative;
         left: 0;
         bottom: 0;
         width: 100%;

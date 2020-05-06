@@ -45,7 +45,7 @@ class App extends Component {
         return <Router>
             <Header/>
             <Navbar/>
-            <div style={{width: "60%", marginLeft: "20%", marginRight: "20%", paddingTop: "1%"}}>
+            <div style={{width: "60%", marginLeft: "20%", marginRight: "20%", marginBottom: "0%", paddingTop: "1%"}}>
             <Switch>
             <Route exact path="/" component={HomePage}/>
             <Route exact path="/adminapp" component={AdminApp}/>
