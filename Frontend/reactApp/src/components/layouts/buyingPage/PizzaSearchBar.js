@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PizzaSearchActions from "../../../actions/PizzaSearchActions";
 
 class PizzaSearchBar extends React.Component {
@@ -53,8 +53,8 @@ class PizzaSearchBar extends React.Component {
                         <td colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={() => {PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients)
-                                }}
+                                onClick={() => {PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients); //window.location.reload(false);
+                                } }
                             >Search
                             </button>
                         </td>

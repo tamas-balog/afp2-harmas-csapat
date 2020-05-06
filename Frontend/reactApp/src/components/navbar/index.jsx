@@ -47,7 +47,7 @@ class NavbarElement extends React.Component{
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/testpage">Test</Nav.Link>
-                        <Nav.Link href="/pizzasearch">Menu</Nav.Link>
+                        <Nav.Link href="/menu">Menu</Nav.Link>
                         <Nav.Link href="/adminapp">Admin</Nav.Link>
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
