@@ -1,7 +1,10 @@
 package io.github.eperatis.web;
 
+import io.github.eperatis.core.sevice.EmployeeManager;
 import io.github.eperatis.core.sevice.PizzaManager;
+import io.github.eperatis.dao.EmployeeRepository;
 import io.github.eperatis.dao.PizzaRepository;
+import io.github.eperatis.service.EmployeeManagerImpl;
 import io.github.eperatis.service.PizzaManagerImpl;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -12,5 +15,9 @@ public class WebConfig {
     @Bean
     public PizzaManager pizzaManager(PizzaRepository repository){
         return new PizzaManagerImpl(repository);
+    }
+
+    @Bean
+    public EmployeeManager employeeManager(EmployeeRepository repository) { return new EmployeeManagerImpl(repository);
     }
 }

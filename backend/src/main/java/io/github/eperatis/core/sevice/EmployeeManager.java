@@ -8,4 +8,6 @@ public interface EmployeeManager {
     void registerEmployee(Employee employee);
 
     Collection<Employee> listStaff();
+
+    void deleteStaff(Long id);
 }

@@ -21,4 +21,6 @@ public class EmployeeManagerImpl implements EmployeeManager {
         return new ArrayList<Employee>((Collection<? extends Employee>) repository.findAll());
     }
 
+    @Override
+    public void deleteStaff(Long l) { repository.deleteById(l);}
 }
