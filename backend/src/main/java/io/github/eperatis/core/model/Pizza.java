@@ -6,26 +6,36 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import java.util.Collection;
 
-@Entity
+@Entity(name = "Pizza")
 @Table(name = "pizzas")
-@Transactional
 @Getter @Setter @NoArgsConstructor
 public class Pizza {
+    public Pizza(Long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
+
     private int price;
-    @ManyToMany(cascade = { CascadeType.MERGE })
+
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
         name = "pizza_ingredient",
         joinColumns = @JoinColumn (name = "pizza_id"),
         inverseJoinColumns = @JoinColumn (name = "ingredient_id"))
     private Collection<Ingredient> ingredients;
-    @ManyToMany(mappedBy = "pizzas")
+
+    @OneToMany(
+        mappedBy = "pizza",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
     @JsonIgnore
-    private Collection<Order> orders;
+    private Collection<OrderPizza> orders;
 }

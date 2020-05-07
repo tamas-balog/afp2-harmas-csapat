@@ -1,17 +1,8 @@
 package io.github.eperatis.web;
 
-import io.github.eperatis.core.service.CustomerManager;
-import io.github.eperatis.core.service.IngredientManager;
-import io.github.eperatis.core.service.OrderManager;
-import io.github.eperatis.core.service.PizzaManager;
-import io.github.eperatis.dao.CustomerRepository;
-import io.github.eperatis.dao.IngredientRepository;
-import io.github.eperatis.dao.OrderRepository;
-import io.github.eperatis.dao.PizzaRepository;
-import io.github.eperatis.service.CustomerManagerImpl;
-import io.github.eperatis.service.IngredientManagerImpl;
-import io.github.eperatis.service.OrderManagerImpl;
-import io.github.eperatis.service.PizzaManagerImpl;
+import io.github.eperatis.core.service.*;
+import io.github.eperatis.dao.*;
+import io.github.eperatis.service.*;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 
@@ -36,6 +27,11 @@ public class WebConfig {
     @Bean
     public CustomerManager customerManager(CustomerRepository repository) {
         return new CustomerManagerImpl(repository);
+    }
+
+    @Bean
+    public OrderPizzaManager orderPizzaManager(OrderPizzaRepository repository) {
+        return new OrderPizzaManagerImpl(repository);
     }
 
 }

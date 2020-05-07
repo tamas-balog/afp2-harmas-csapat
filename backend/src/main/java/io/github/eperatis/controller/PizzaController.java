@@ -2,11 +2,10 @@ package io.github.eperatis.controller;
 
 import io.github.eperatis.core.model.Pizza;
 import io.github.eperatis.core.service.PizzaManager;
+import io.github.eperatis.dto.ListPizzasDTO;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URISyntaxException;
 import java.util.Collection;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/pizzas")
@@ -19,7 +18,7 @@ public class PizzaController {
     }
 
     @RequestMapping(value = {""})
-    public Collection<Pizza> listPizzas() {
+    public Collection<ListPizzasDTO> listPizzas() {
         return pizzaManager.listPizza();
     }
 
@@ -29,7 +28,7 @@ public class PizzaController {
     }
 
     @RequestMapping(value = {"/{id}"})
-    public Optional<Pizza> findPizza(@PathVariable Long id) {
+    public ListPizzasDTO findPizza(@PathVariable Long id) {
         return pizzaManager.findById(id);
     }
 

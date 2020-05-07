@@ -1,7 +1,6 @@
 package io.github.eperatis.service;
 
 import io.github.eperatis.core.model.Ingredient;
-import io.github.eperatis.core.model.Pizza;
 import io.github.eperatis.core.service.IngredientManager;
 import io.github.eperatis.dao.IngredientRepository;
 
@@ -11,7 +10,7 @@ import java.util.Optional;
 
 public class IngredientManagerImpl implements IngredientManager {
 
-    private IngredientRepository repository;
+    private final IngredientRepository repository;
 
     public IngredientManagerImpl(IngredientRepository repository) {
         this.repository = repository;
@@ -19,7 +18,7 @@ public class IngredientManagerImpl implements IngredientManager {
 
     @Override
     public Collection<Ingredient> listIngredients() {
-        return new ArrayList<Ingredient>((Collection<? extends Ingredient>) repository.findAll());
+        return new ArrayList<>((Collection<? extends Ingredient>) repository.findAll());
     }
 
     @Override
@@ -39,9 +38,8 @@ public class IngredientManagerImpl implements IngredientManager {
 
     @Override
     public Optional<Ingredient> findByName(String name) {
-        Optional<Ingredient> ingredientOptional = repository.findByName(name);
 
-        return ingredientOptional;
+        return repository.findByName(name);
     }
 
     @Override

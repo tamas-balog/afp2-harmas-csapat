@@ -2,7 +2,6 @@ package io.github.eperatis.core.service;
 
 import io.github.eperatis.core.model.Ingredient;
 
-import javax.swing.text.html.Option;
 import java.util.Collection;
 import java.util.Optional;
 

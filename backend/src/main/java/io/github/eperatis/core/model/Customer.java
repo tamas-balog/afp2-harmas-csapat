@@ -28,7 +28,7 @@ public class Customer {
 
     private String street;
 
-    private String streetNumber;
+    private int streetNumber;
 
     private String phoneNumber;
 

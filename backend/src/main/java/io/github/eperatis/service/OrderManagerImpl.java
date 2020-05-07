@@ -1,28 +1,36 @@
 package io.github.eperatis.service;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.eperatis.core.model.Order;
 import io.github.eperatis.core.service.OrderManager;
 import io.github.eperatis.dao.OrderRepository;
+import io.github.eperatis.dto.ListOrdersDTO;
+import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class OrderManagerImpl implements OrderManager {
 
-    private OrderRepository repository;
+    private final OrderRepository repository;
 
     public OrderManagerImpl(OrderRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public Collection<Order> listOrders() {
-
-        return new ArrayList<Order>((Collection<? extends Order>) repository.findAll());
+    public Collection<ListOrdersDTO> listOrders() {
+        ModelMapper modelMapper = new ModelMapper();
+        ArrayList<ListOrdersDTO> listOrdersDto = new ArrayList<>();
+        repository.findAll().forEach(x -> listOrdersDto.add(modelMapper.map(x, ListOrdersDTO.class)));
+        return listOrdersDto;
     }
 
     @Override
-    public void recordOrder(Order order) {
-        repository.save(order);
+    public void recordOrder(Order input) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        repository.save(input);
     }
 }

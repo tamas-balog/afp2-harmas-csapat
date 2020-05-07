@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public class CustomerManagerImpl implements CustomerManager {
 
-    private CustomerRepository repository;
+    private final CustomerRepository repository;
 
     public CustomerManagerImpl(CustomerRepository repository) {
         this.repository = repository;
@@ -17,7 +17,7 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @Override
     public Collection<Customer> listCustomers() {
-        return new ArrayList<Customer>((Collection<? extends Customer>) repository.findAll());
+        return new ArrayList<>((Collection<? extends Customer>) repository.findAll());
     }
 
     @Override

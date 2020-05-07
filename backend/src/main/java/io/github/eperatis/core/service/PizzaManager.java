@@ -1,17 +1,17 @@
 package io.github.eperatis.core.service;
 
 import io.github.eperatis.core.model.Pizza;
+import io.github.eperatis.dto.ListPizzasDTO;
 
 import java.util.Collection;
-import java.util.Optional;
 
 public interface PizzaManager {
 
-    Collection<Pizza> listPizza();
+    Collection<ListPizzasDTO> listPizza();
 
     void recordPizza(Pizza pizza);
 
-    Optional<Pizza> findById(Long id);
+    ListPizzasDTO findById(Long id);
 
     void deletePizza(Long id);
 

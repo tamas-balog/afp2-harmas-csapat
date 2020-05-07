@@ -1,12 +1,16 @@
 package io.github.eperatis.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import io.github.eperatis.core.model.Order;
 import io.github.eperatis.core.service.OrderManager;
+import io.github.eperatis.dto.ListOrdersDTO;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.Collection;
 
 @RestController
@@ -20,12 +24,14 @@ public class OrderController {
     }
 
     @RequestMapping(value = "")
-    public Collection<Order> listOrders() {
+    public Collection<ListOrdersDTO> listOrders() {
+
         return orderManager.listOrders();
     }
 
     @RequestMapping(value = "/record", method = RequestMethod.POST)
-    public void recordOrder(@RequestBody Order order) {
-        orderManager.recordOrder(order);
+    public void recordOrder(@RequestBody Order object) throws IOException {
+
+        orderManager.recordOrder(object);
     }
 }
