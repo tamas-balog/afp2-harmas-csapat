@@ -12,6 +12,7 @@ import java.util.Collection;
 @Table(name = "pizzas")
 @Getter @Setter @NoArgsConstructor
 public class Pizza {
+
     public Pizza(Long id) {
         this.id = id;
     }

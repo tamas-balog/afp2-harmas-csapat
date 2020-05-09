@@ -34,4 +34,8 @@ public class WebConfig {
         return new OrderPizzaManagerImpl(repository);
     }
 
+    @Bean
+    public SchedulerManager SchedulerManager(SchedulerRepository repository) {
+        return new SchedulerManagerImpl(repository);
+    }
 }

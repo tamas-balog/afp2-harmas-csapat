@@ -1,7 +1,5 @@
 package io.github.eperatis.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import io.github.eperatis.core.model.Order;
 import io.github.eperatis.core.service.OrderManager;
 import io.github.eperatis.dto.ListOrdersDTO;
@@ -17,7 +15,7 @@ import java.util.Collection;
 @RequestMapping(value = "/orders")
 public class OrderController {
 
-    private OrderManager orderManager;
+    private final OrderManager orderManager;
 
     public OrderController(OrderManager orderManager) {
         this.orderManager = orderManager;

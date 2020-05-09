@@ -11,7 +11,7 @@ import java.util.Collection;
 @RequestMapping(value = "/pizzas")
 public class PizzaController {
 
-    private PizzaManager pizzaManager;
+    private final PizzaManager pizzaManager;
 
     public PizzaController(PizzaManager pizzaManager) {
         this.pizzaManager = pizzaManager;
