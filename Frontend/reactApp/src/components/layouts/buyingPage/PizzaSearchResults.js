@@ -1,5 +1,6 @@
 import React from 'react';
 import PizzaStore from '../../../stores/PizzaStore'
+import PizzaSearchActions from "../../../actions/PizzaSearchActions";
 class PizzaSearchResults extends React.Component{
 
     constructor() {
@@ -44,6 +45,29 @@ class PizzaSearchResults extends React.Component{
                 }
                 </tbody>
             </table>
+
+            /*<container  style={{width: "100%", border: "1px solid black"}}>
+                <div className="picture" style={{width: "30%", border: "1px solid black"}}></div>
+                <div style={{width: "70%"}}>
+                    {
+                    this.state.pizzas.map((pizza)=>{
+                    return (
+                    <div>
+                    <h4>Name:</h4> {pizza.pizzaName}
+                    <p>Ingredients:</p>
+                        <ol>{pizza.ingredients.map((ingredient)=>{
+                        return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
+                    })}</ol>
+                        <p>Price:</p>
+                    </div>
+                    );
+                    })}
+                    <button
+                        className="btn btn-info"
+                    >To Cart
+                    </button>
+                </div>
+            </container>*/
         );
     }
 }
