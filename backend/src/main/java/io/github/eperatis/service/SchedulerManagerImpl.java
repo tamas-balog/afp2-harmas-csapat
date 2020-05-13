@@ -7,6 +7,7 @@ import io.github.eperatis.dao.SchedulerRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 public class SchedulerManagerImpl implements SchedulerManager {
 
@@ -22,6 +23,11 @@ public class SchedulerManagerImpl implements SchedulerManager {
     @Override
     public Collection<Scheduler> listSchedulers() {
         return new ArrayList<>((Collection<? extends Scheduler>) repository.findAll());
+    }
+
+    @Override
+    public Optional<Scheduler> listChosen() {
+        return repository.findById(1L);
     }
 
     @Override

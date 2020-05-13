@@ -1,17 +1,20 @@
 package io.github.eperatis.dto;
 
-import io.github.eperatis.core.model.Ingredient;
-import io.github.eperatis.core.model.Order;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.github.eperatis.core.model.OrderPizza;
+import io.github.eperatis.core.model.Pizza;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Collection;
 
+@Getter @Setter @NoArgsConstructor
 public class PreparationListDTO {
 
-    private String name;
+    Long id;
 
-    private int price;
+    Pizza pizza;
 
-    private Collection<Ingredient> ingredients;
-
-    private Collection<Order> orders;
+    boolean prepared;
 }

@@ -1,5 +1,6 @@
 package io.github.eperatis.web;
 
+import io.github.eperatis.core.model.Scheduler;
 import io.github.eperatis.core.service.*;
 import io.github.eperatis.dao.*;
 import io.github.eperatis.service.*;
@@ -30,8 +31,8 @@ public class WebConfig {
     }
 
     @Bean
-    public OrderPizzaManager orderPizzaManager(OrderPizzaRepository repository) {
-        return new OrderPizzaManagerImpl(repository);
+    public OrderPizzaManager orderPizzaManager(OrderPizzaRepository repository, SchedulerManager schedulerManager) {
+        return new OrderPizzaManagerImpl(repository, schedulerManager);
     }
 
     @Bean

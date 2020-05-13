@@ -17,7 +17,7 @@ public class SchedulerController {
     }
 
     @RequestMapping(value = {""})
-    public Collection<Scheduler> listPizzas() {
+    public Collection<Scheduler> listSchedulers() {
         return schedulerManager.listSchedulers();
     }
 
