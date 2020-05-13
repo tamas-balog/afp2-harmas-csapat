@@ -14,23 +14,25 @@ class PizzaDispatcher extends Dispatcher{
 const dispatcher = new PizzaDispatcher();
 
 dispatcher.register((payload)=>{
-    if(payload.action.actionType !== 'PIZZA_SEARCH'){
-        return;
-    }
+    if(payload.action.actionType === 'PIZZA_SEARCH'){
     if(payload.action.payload.pizzaName !== ''){
-        console.log('Név szerinti keresés');
         axios.get('/pizzas').then((resp)=>{
             store._pizzas = resp.data.filter((pizza)=>{
+                console.log(pizza.pizzaName)
                 return pizza.pizzaName.includes(payload.action.payload.pizzaName)
             });
             store.emitChange();
         });
     }
-    else if(payload.action.payload.ingredients !== '') {
-        console.log('Összetevő szerinti keresés');
+    if(payload.action.payload.ingredients !== '') {
         axios.get('/pizzas').then((resp)=>{
             store._pizzas = resp.data.filter((pizza)=>{
-                return pizza.ingredients.includes(payload.action.payload.ingredients)
+                console.log(payload.action.payload.ingredients)
+                for (let i = 0; i < pizza.ingredients.length; i++) {
+                    if(payload.action.payload.ingredients === pizza.ingredients[i].name)
+                        return true;
+                }
+                return false
             });
             store.emitChange();
         });
@@ -43,6 +45,7 @@ dispatcher.register((payload)=>{
             });
             store.emitChange();
         });
+    }
     }
 });
 
