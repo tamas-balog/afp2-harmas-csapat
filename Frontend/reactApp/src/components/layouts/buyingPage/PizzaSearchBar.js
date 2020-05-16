@@ -14,10 +14,11 @@ class PizzaSearchBar extends React.Component {
     render() {
         return (
             <div>
+                <h2 style={{textAlign: "center", paddingBottom: "20px"}}>Válasszon széleskörű pizza kínálatunkból!</h2>
                 <table>
                     <tbody>
                     <tr>
-                        <td>Pizza name</td>
+                        <td>Pizza neve: </td>
                         <td>
                             <input
                                 type={"text"}
@@ -28,16 +29,11 @@ class PizzaSearchBar extends React.Component {
                                     this.setState(st);
                                     }
                                 }
-                                /*onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
-                                        PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients);
-                                    }
-                                }}*/
                             /></td>
                     </tr>
 
                     <tr>
-                        <td>Ingredients</td>
+                        <td>Összetevő neve: </td>
                         <td>
                             <input
                                 type={"text"}
@@ -47,18 +43,13 @@ class PizzaSearchBar extends React.Component {
                                     st.ingredients = e.target.value;
                                     this.setState(st);
                                 }}
-                                /*onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
-                                        PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients);
-                                    }
-                                }}*/
                             /></td>
                     </tr>
                     <tr>
                         <td colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={() => {PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients); //window.location.reload(false);
+                                onClick={() => {PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients);  console.log(this.state.pizzaName); //window.location.reload(false);
                                 } }
                             >Search
                             </button>

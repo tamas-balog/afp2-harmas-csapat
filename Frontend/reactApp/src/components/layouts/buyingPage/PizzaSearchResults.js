@@ -1,7 +1,20 @@
 import React from 'react';
 import PizzaStore from '../../../stores/PizzaStore'
 import PizzaSearchActions from "../../../actions/PizzaSearchActions";
+
+var pizzastocart = [];
+
 class PizzaSearchResults extends React.Component{
+    toCart(pizzaName, pizzaPrice) {
+        var pizza = [pizzaName, pizzaPrice]
+        pizzastocart.push(pizza)
+
+        console.log(pizzastocart);
+    }
+
+    static returnCart() {
+        return pizzastocart
+    }
 
     constructor() {
         super();
@@ -26,8 +39,9 @@ class PizzaSearchResults extends React.Component{
             <table className="table">
                 <thead>
                 <tr>
-                    <td>Pizza Name</td>
-                    <td>Ingredients</td>
+                    <td>Név: </td>
+                    <td>Összetevők:</td>
+                    <td></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,35 +53,15 @@ class PizzaSearchResults extends React.Component{
                                 <td><ol>{pizza.ingredients.map((ingredient)=>{
                                     return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
                                 })}</ol></td>
+                                <td><button className="btn btn-info"
+                                            onClick={() => {this.toCart(pizza.pizzaName, pizza.pizzaPrice)} }
+                                >Kosárba</button></td>
                             </tr>
                         );
                     })
                 }
                 </tbody>
             </table>
-
-            /*<container  style={{width: "100%", border: "1px solid black"}}>
-                <div className="picture" style={{width: "30%", border: "1px solid black"}}></div>
-                <div style={{width: "70%"}}>
-                    {
-                    this.state.pizzas.map((pizza)=>{
-                    return (
-                    <div>
-                    <h4>Name:</h4> {pizza.pizzaName}
-                    <p>Ingredients:</p>
-                        <ol>{pizza.ingredients.map((ingredient)=>{
-                        return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
-                    })}</ol>
-                        <p>Price:</p>
-                    </div>
-                    );
-                    })}
-                    <button
-                        className="btn btn-info"
-                    >To Cart
-                    </button>
-                </div>
-            </container>*/
         );
     }
 }
