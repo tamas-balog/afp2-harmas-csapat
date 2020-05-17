@@ -1,10 +1,11 @@
 import React from 'react';
 import PreparationActions from "../../../../actions/PreparationActions";
 
-class DeliveriesCRUD extends React.Component{
+class PreparationsCRUD extends React.Component{
     constructor(){
         super();
         this.state={
+            sequentialNumber : "",
             id : "",
             preparedAt : ""
         }
@@ -47,14 +48,16 @@ class DeliveriesCRUD extends React.Component{
                                 className="btn btn-info"
                                 onClick={()=>{PreparationActions.search(this.state.id, this.state.preparedAt)
                                 }}
-                            >Search by ID
+                            >Search
                             </button>
                             <button
                                 className="btn btn-info"
                                 onClick={()=>{
                                     PreparationActions.update(
+                                        this.state.sequentialNumber,
+                                        this.state.id,
                                         this.state.preparedAt,
-                                    );window.location.reload();}}
+                                    );window.location.reload();} }
                             >Update
                             </button>
                         </td>
@@ -65,4 +68,4 @@ class DeliveriesCRUD extends React.Component{
     }
 }
 
-export default DeliveriesCRUD;
+export default PreparationsCRUD;

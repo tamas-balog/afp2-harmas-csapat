@@ -4,6 +4,7 @@ import Pizzastore from './stores/PizzaStore'
 import Staffstore from "./stores/StaffStore";
 import Deliverystore from "./stores/DeliveryStore";
 import Preparationstore from "./stores/PreparationStore";
+import Orderstore from "./stores/OrderStore";
 
 class PizzaDispatcher extends Dispatcher{
 
@@ -18,12 +19,24 @@ const dispatcher = new PizzaDispatcher();
 
 dispatcher.register((payload)=>{
     if(payload.action.actionType === 'PIZZA_SEARCH'){
-        axios.get('/pizzas').then((resp)=>{
-            Pizzastore._pizzas = resp.data.filter((pizza)=>{
-                return pizza.pizzaName.includes(payload.action.payload.pizzaName)
-            });
-            Pizzastore.emitChange();
-        })
+            axios.get('/pizzas').then((resp)=>{
+                Pizzastore._pizzas = resp.data.filter((pizza)=>{
+                    return pizza.pizzaName.includes(payload.action.payload.pizzaName)
+                });
+                Pizzastore.emitChange();
+            })
+        }
+    if(payload.action.actionType === 'PIZZA_CREATE'){
+        axios.post('/pizzas',{
+            id : payload.action.payload.id,
+            pizzaName : payload.action.payload.pizzaName,
+            pizzaPrice : payload.action.payload.pizzaPrice,
+            ingredients : payload.action.payload.ingredients
+        }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
+    }
+    if(payload.action.actionType === 'PIZZA_DELETE'){
+        axios.delete('/pizzas/' + payload.action.payload.id).
+        then(resp=>{console.log(resp.data)}).catch(err => console.log(err))
     }
     if(payload.action.actionType === 'STAFF_SEARCH') {
         if (payload.action.payload.id === "") {
@@ -46,7 +59,7 @@ dispatcher.register((payload)=>{
     if(payload.action.actionType === 'STAFF_REGISTER'){
         axios.post('/employees',{
             id : payload.action.payload.id,
-            positionCode : payload.action.payload.firstName,
+            positionCode : payload.action.payload.positionCode,
             firstName : payload.action.payload.firstName,
             lastName : payload.action.payload.lastName,
             email : payload.action.payload.email,
@@ -62,7 +75,7 @@ dispatcher.register((payload)=>{
         if(payload.action.payload.id !==''){
             axios.put('/employees/' + payload.action.payload.id,{
                 id : payload.action.payload.id,
-                positionCode : payload.action.payload.firstName,
+                positionCode : payload.action.payload.positionCode,
                 firstName : payload.action.payload.firstName,
                 lastName : payload.action.payload.lastName,
                 email : payload.action.payload.email,
@@ -117,10 +130,21 @@ dispatcher.register((payload)=>{
     if(payload.action.actionType === 'PREPARATION_UPDATE'){
         if(payload.action.payload.id !==''){
             axios.put('/preppizzas/' + payload.action.payload.id,{
+                sequentialNumber: payload.sequentialNumber,
+                id : payload.action.payload.id,
                 preparedAt : payload.action.payload.preparedAt,
-            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
+            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err)
+            });
         }
     }
+    if(payload.action.actionType === 'ORDER_LIST') {
+            axios.get('/orders').then((resp)=>{
+                Orderstore._orders = resp.data.filter((order)=>{
+                    return order;
+                });
+                Orderstore.emitChange();
+            })
+        }
 });
 
 

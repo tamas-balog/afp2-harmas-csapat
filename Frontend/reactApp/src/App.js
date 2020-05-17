@@ -21,6 +21,9 @@ import Footer from "./components/footer";
 import EmployeesPage from "./components/layouts/managementPage/Employees/EmployeesPage";
 import DeliveriesPage from "./components/layouts/managementPage/Deliveries/DeliveriesPage";
 import PreparationPage from "./components/layouts/managementPage/Preparations/PreparationsPage"
+import OrdersPage from "./components/layouts/managementPage/Orders/OrdersPage";
+import PizzasPage from "./components/layouts/managementPage/Pizzas/PizzasPage";
+import Login from "./components/layouts/auth/login";
 
 /*function App() {
     return (
@@ -54,15 +57,17 @@ class App extends Component {
             <Route exact path="/employees" component={EmployeesPage}/>
             <Route exact path="/deliveries" component={DeliveriesPage}/>
             <Route exact path="/preppizzas" component={PreparationPage}/>
+            <Route exact path="/orders" component={OrdersPage}/>
+            <Route exact path="/pizzas" component={PizzasPage}/>
             <Route exact path="/pizzasearch" component={PizzaSearch}/>
             <Route exact path="/pizzasearchres" component={PizzaSearchResult}/>
+            <Route exact path="/login" component={Login}/>
             <Route exact path="/menu" component={Menu}/>
             <Route exact path="/testpage" component={TestPage}/>
             <Route exact path="/404" component={NotFound}/>
             <Redirect to="/404"/>
             </Switch>
             </div>
-            <Footer/>
         </Router>
         //return <div className="App"><Navbar/>Hey<Footer/></div>;
     }

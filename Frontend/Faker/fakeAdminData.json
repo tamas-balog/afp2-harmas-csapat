@@ -1,29 +1,6 @@
 {
   "pizzas": [
     {
-      "id": 1,
-      "pizzaName": "Tojásos sajtos pizza",
-      "pizzaPrice": 22,
-      "ingredients": [
-        {
-          "name": "tojás",
-          "id": "5"
-        },
-        {
-          "name": "sajt",
-          "id": 7
-        },
-        {
-          "name": "optio",
-          "id": 9
-        },
-        {
-          "name": "ut",
-          "id": 32
-        }
-      ]
-    },
-    {
       "id": 2,
       "pizzaName": "perspiciatis",
       "pizzaPrice": 36,
@@ -39,33 +16,6 @@
         {
           "name": "omnis",
           "id": 65
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "pizzaName": "quae",
-      "pizzaPrice": 18,
-      "ingredients": [
-        {
-          "name": "ullam",
-          "id": 6
-        },
-        {
-          "name": "delectus",
-          "id": 82
-        },
-        {
-          "name": "deleniti",
-          "id": 79
-        },
-        {
-          "name": "dolorem",
-          "id": 14
-        },
-        {
-          "name": "excepturi",
-          "id": 40
         }
       ]
     },
@@ -455,17 +405,29 @@
           "id": 50
         }
       ]
+    },
+    {
+      "id": "1",
+      "pizzaName": "Sonkás",
+      "pizzaPrice": "100",
+      "ingredients": [
+        "sonka"
+      ]
+    },
+    {
+      "id": "21",
+      "pizzaName": "Sajtos sonkás",
+      "pizzaPrice": "1000",
+      "ingredients": [
+        "sonka",
+        "sajt"
+      ]
     }
   ],
   "employees": [
     {
-      "id": 0,
-      "positionCode": 3,
-      "firstName": "Tiana",
-      "lastName": "Abernathy",
-      "email": "kwejapraoejp",
-      "phoneNumber": "317-890-1803",
-      "password": "TmzK3NUXCSRa5Du"
+      "firstName": "Thomas",
+      "id": 0
     },
     {
       "id": 8,
@@ -601,10 +563,18 @@
       "phoneNumber": ""
     },
     {
-      "id": 22,
+      "id": "2",
       "positionCode": "",
       "firstName": "",
-      "lastName": "Balog",
+      "lastName": "",
+      "email": "",
+      "phoneNumber": ""
+    },
+    {
+      "id": 23,
+      "positionCode": "",
+      "firstName": "",
+      "lastName": "",
       "email": "",
       "phoneNumber": ""
     }
@@ -1120,16 +1090,12 @@
   ],
   "preppizzas": [
     {
-      "sequentialNumber": 1,
-      "id": 61301,
-      "name": "molestiae",
-      "preparedAt": "2020-05-02T21:16:16.687Z"
+      "id": 12345,
+      "preparedAt": "2020"
     },
     {
-      "sequentialNumber": 2,
-      "id": 21349,
-      "name": "impedit",
-      "preparedAt": "2020-05-02T23:25:48.105Z"
+      "id": 11135,
+      "preparedAt": "2020"
     },
     {
       "sequentialNumber": 3,

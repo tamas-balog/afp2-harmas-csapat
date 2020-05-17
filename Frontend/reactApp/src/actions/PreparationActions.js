@@ -10,10 +10,12 @@ class PreparationActions{
             }
         });
     }
-    update(preparedAt){
+    update(sequentialNumber, id, preparedAt){
         dispatcher.handleViewAction({
             actionType : 'PREPARATION_UPDATE',
             payload : {
+                sequentialNumber : sequentialNumber,
+                id : id,
                 preparedAt : preparedAt
             }
         });
