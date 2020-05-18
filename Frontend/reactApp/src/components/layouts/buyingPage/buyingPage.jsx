@@ -7,12 +7,10 @@ class BuyingPage extends React.Component {
         return (
             <div className="container-fluid">
                 <div className={"row"}>
-                    <div className="col-md-2"></div>
                     <div className="col-md-8">
                         <div className="row"><PizzaSearchBar/></div>
                         <div className="row"><PizzaSearchResults/></div>
                     </div>
-                    <div className="col-md-2"></div>
                 </div>
             </div>
         )

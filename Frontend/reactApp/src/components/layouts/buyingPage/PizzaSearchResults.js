@@ -1,5 +1,6 @@
 import React from 'react';
-import PizzaStore from '../../../stores/PizzaStore'
+import Pizzastore from '../../../stores/PizzaStore';
+
 class PizzaSearchResults extends React.Component{
 
     constructor() {
@@ -9,15 +10,15 @@ class PizzaSearchResults extends React.Component{
     }
 
     _onChange(){
-        this.setState({pizzas : PizzaStore._pizzas});
+        this.setState({pizzas : Pizzastore._pizzas});
     }
 
     componentDidMount() {
-        PizzaStore.addChangeListener(this._onChange);
+        Pizzastore.addChangeListener(this._onChange);
     }
 
     componentWillUnmount() {
-        PizzaStore.removeChangeListener(this._onChange);
+        Pizzastore.removeChangeListener(this._onChange);
     }
 
     render(){
