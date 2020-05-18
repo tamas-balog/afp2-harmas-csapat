@@ -1,29 +1,6 @@
 {
   "pizzas": [
     {
-      "id": 1,
-      "pizzaName": "Tojásos sajtos pizza",
-      "pizzaPrice": 22,
-      "ingredients": [
-        {
-          "name": "tojás",
-          "id": "5"
-        },
-        {
-          "name": "sajt",
-          "id": 7
-        },
-        {
-          "name": "optio",
-          "id": 9
-        },
-        {
-          "name": "ut",
-          "id": 32
-        }
-      ]
-    },
-    {
       "id": 2,
       "pizzaName": "perspiciatis",
       "pizzaPrice": 36,
@@ -39,33 +16,6 @@
         {
           "name": "omnis",
           "id": 65
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "pizzaName": "quae",
-      "pizzaPrice": 18,
-      "ingredients": [
-        {
-          "name": "ullam",
-          "id": 6
-        },
-        {
-          "name": "delectus",
-          "id": 82
-        },
-        {
-          "name": "deleniti",
-          "id": 79
-        },
-        {
-          "name": "dolorem",
-          "id": 14
-        },
-        {
-          "name": "excepturi",
-          "id": 40
         }
       ]
     },
@@ -445,90 +395,67 @@
         {
           "name": "id",
           "id": 16
+        }
+      ]
+    },
+    {
+      "id": "666",
+      "pizzaName": "tenger",
+      "pizzaPrice": "1234",
+      "ingredients": [
+        {
+          "name": "káposzta",
+          "id": 9
         },
         {
-          "name": "deleniti",
-          "id": 79
+          "name": "kolbász",
+          "id": 28
+        }
+      ]
+    },
+    {
+      "id": "777",
+      "pizzaName": "óceán",
+      "pizzaPrice": "152",
+      "ingredients": [
+        {
+          "name": "káposzta",
+          "id": 15
         },
         {
-          "name": "et",
-          "id": 50
+          "name": "kolbász",
+          "id": 22
+        }
+      ]
+    },
+    {
+      "id": "999",
+      "pizzaName": "Thomas",
+      "pizzaPrice": "888",
+      "ingredients": [
+        {
+          "name": "Tomi",
+          "id": 3
+        },
+        {
+          "name": "Balog",
+          "id": 8
+        },
+        {
+          "name": "Szihalom",
+          "id": 16
+        },
+        {
+          "name": "SZakelső",
+          "id": 24
         }
       ]
     }
   ],
   "employees": [
     {
-      "id": 0,
-      "positionCode": 3,
-      "firstName": "Tiana",
-      "lastName": "Abernathy",
-      "email": "kwejapraoejp",
-      "phoneNumber": "317-890-1803",
-      "password": "TmzK3NUXCSRa5Du"
-    },
-    {
-      "id": 1,
-      "positionCode": 1,
-      "firstName": "Hershel",
-      "lastName": "Mills",
-      "email": "Betty_Graham48@gmail.com",
-      "phoneNumber": "994-064-9068",
-      "password": "1Whwc2oaSZ7SXmG"
-    },
-    {
-      "id": 2,
-      "positionCode": 1,
-      "firstName": "Jules",
-      "lastName": "Wolff",
-      "email": "Orpha.Nicolas78@gmail.com",
-      "phoneNumber": "555-895-6106",
-      "password": "tj5YcGd72KUyBII"
-    },
-    {
-      "id": 3,
-      "positionCode": 2,
-      "firstName": "Karolann",
-      "lastName": "Reynolds",
-      "email": "Reagan_Dicki60@gmail.com",
-      "phoneNumber": "644-597-3538",
-      "password": "QflhfuWnulo8KqS"
-    },
-    {
-      "id": 4,
-      "positionCode": 3,
-      "firstName": "Zoe",
-      "lastName": "Sanford",
-      "email": "Wendy.Murray@gmail.com",
-      "phoneNumber": "212-531-9887",
-      "password": "d2sOTScc65lvTpr"
-    },
-    {
-      "id": 5,
-      "positionCode": 3,
-      "firstName": "Gilda",
-      "lastName": "Powlowski",
-      "email": "Lonnie.Barrows14@gmail.com",
-      "phoneNumber": "538-045-8774",
-      "password": "C4Ivmke5EHNK55h"
-    },
-    {
-      "id": 6,
-      "positionCode": 3,
-      "firstName": "Amalia",
-      "lastName": "Purdy",
-      "email": "Nicolette_Grant@yahoo.com",
-      "phoneNumber": "274-774-1536",
-      "password": "wKhrucSiHflcHEY"
-    },
-    {
-      "id": 7,
-      "positionCode": 2,
-      "firstName": "Milan",
-      "lastName": "McCullough",
-      "email": "Myra.Collins18@yahoo.com",
-      "phoneNumber": "116-272-5167",
-      "password": "r24myhBbCNOfCdh"
+      "firstName": "Thomas",
+      "id": 0
     },
     {
       "id": 8,
@@ -646,6 +573,58 @@
       "email": "Kaela_Ferry12@hotmail.com",
       "phoneNumber": "848-184-0322",
       "password": "i7170e_yHeQLtoE"
+    },
+    {
+      "id": 21,
+      "positionCode": "",
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "phoneNumber": ""
+    },
+    {
+      "id": "1",
+      "positionCode": "",
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "phoneNumber": ""
+    },
+    {
+      "id": "2",
+      "positionCode": "",
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "phoneNumber": ""
+    },
+    {
+      "id": 23,
+      "positionCode": "",
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "phoneNumber": ""
+    },
+    {
+      "email": "Julie16@gmail.com",
+      "password": "PbJ7sVt3eXdA1Vi",
+      "id": 24
+    },
+    {
+      "email": "admin",
+      "password": "admin",
+      "id": 25
+    },
+    {
+      "email": "admin",
+      "password": "admin",
+      "id": 26
+    },
+    {
+      "email": "jkj",
+      "password": "l",
+      "id": 27
     }
   ],
   "deliveries": [
@@ -1160,27 +1139,27 @@
   "preppizzas": [
     {
       "sequentialNumber": 1,
-      "id": 61301,
-      "name": "molestiae",
-      "preparedAt": "2020-05-02T21:16:16.687Z"
+      "id": 12345,
+      "name": "",
+      "preparedAt": "3040"
     },
     {
       "sequentialNumber": 2,
-      "id": 21349,
-      "name": "impedit",
-      "preparedAt": "2020-05-02T23:25:48.105Z"
+      "id": 11135,
+      "name": "ble",
+      "preparedAt": "2050"
     },
     {
       "sequentialNumber": 3,
       "id": 10235,
-      "name": "beatae",
-      "preparedAt": "2020-05-02T21:33:28.759Z"
+      "name": "ert",
+      "preparedAt": "2022"
     },
     {
       "sequentialNumber": 4,
       "id": 99688,
-      "name": "dicta",
-      "preparedAt": "2020-05-02T19:24:48.462Z"
+      "name": "bnm",
+      "preparedAt": "2022"
     }
   ]
 }

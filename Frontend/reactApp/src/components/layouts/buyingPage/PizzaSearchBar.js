@@ -28,11 +28,11 @@ class PizzaSearchBar extends React.Component {
                                     this.setState(st);
                                     }
                                 }
-                                onKeyDown={(e) => {
+                                /*onKeyDown={(e) => {
                                     if (e.key === 'Enter') {
                                         PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients);
                                     }
-                                }}
+                                }}*/
                             /></td>
                     </tr>
 
@@ -53,7 +53,7 @@ class PizzaSearchBar extends React.Component {
                         <td colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={() => {PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients)
+                                onClick={() => {PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients);
                                 }}
                             >Search
                             </button>
