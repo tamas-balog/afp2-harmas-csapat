@@ -395,32 +395,60 @@
         {
           "name": "id",
           "id": 16
-        },
-        {
-          "name": "deleniti",
-          "id": 79
-        },
-        {
-          "name": "et",
-          "id": 50
         }
       ]
     },
     {
-      "id": "1",
-      "pizzaName": "Sonkás",
-      "pizzaPrice": "100",
+      "id": "666",
+      "pizzaName": "tenger",
+      "pizzaPrice": "1234",
       "ingredients": [
-        "sonka"
+        {
+          "name": "káposzta",
+          "id": 9
+        },
+        {
+          "name": "kolbász",
+          "id": 28
+        }
       ]
     },
     {
-      "id": "21",
-      "pizzaName": "Sajtos sonkás",
-      "pizzaPrice": "1000",
+      "id": "777",
+      "pizzaName": "óceán",
+      "pizzaPrice": "152",
       "ingredients": [
-        "sonka",
-        "sajt"
+        {
+          "name": "káposzta",
+          "id": 15
+        },
+        {
+          "name": "kolbász",
+          "id": 22
+        }
+      ]
+    },
+    {
+      "id": "999",
+      "pizzaName": "Thomas",
+      "pizzaPrice": "888",
+      "ingredients": [
+        {
+          "name": "Tomi",
+          "id": 3
+        },
+        {
+          "name": "Balog",
+          "id": 8
+        },
+        {
+          "name": "Szihalom",
+          "id": 16
+        },
+        {
+          "name": "SZakelső",
+          "id": 24
+        }
       ]
     }
   ],
@@ -577,6 +605,26 @@
       "lastName": "",
       "email": "",
       "phoneNumber": ""
+    },
+    {
+      "email": "Julie16@gmail.com",
+      "password": "PbJ7sVt3eXdA1Vi",
+      "id": 24
+    },
+    {
+      "email": "admin",
+      "password": "admin",
+      "id": 25
+    },
+    {
+      "email": "admin",
+      "password": "admin",
+      "id": 26
+    },
+    {
+      "email": "jkj",
+      "password": "l",
+      "id": 27
     }
   ],
   "deliveries": [
@@ -1090,24 +1138,28 @@
   ],
   "preppizzas": [
     {
+      "sequentialNumber": 1,
       "id": 12345,
-      "preparedAt": "2020"
+      "name": "",
+      "preparedAt": "3040"
     },
     {
+      "sequentialNumber": 2,
       "id": 11135,
-      "preparedAt": "2020"
+      "name": "ble",
+      "preparedAt": "2050"
     },
     {
       "sequentialNumber": 3,
       "id": 10235,
-      "name": "beatae",
-      "preparedAt": "2020-05-02T21:33:28.759Z"
+      "name": "ert",
+      "preparedAt": "2022"
     },
     {
       "sequentialNumber": 4,
       "id": 99688,
-      "name": "dicta",
-      "preparedAt": "2020-05-02T19:24:48.462Z"
+      "name": "bnm",
+      "preparedAt": "2022"
     }
   ]
 }

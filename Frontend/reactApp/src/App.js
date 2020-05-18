@@ -23,7 +23,7 @@ import DeliveriesPage from "./components/layouts/managementPage/Deliveries/Deliv
 import PreparationPage from "./components/layouts/managementPage/Preparations/PreparationsPage"
 import OrdersPage from "./components/layouts/managementPage/Orders/OrdersPage";
 import PizzasPage from "./components/layouts/managementPage/Pizzas/PizzasPage";
-import Login from "./components/layouts/auth/login";
+import Login from "./components/auth/login.component"
 
 /*function App() {
     return (

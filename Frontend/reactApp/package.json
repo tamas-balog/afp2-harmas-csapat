@@ -26,6 +26,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-sticky-footer": "0.1.0-rc3",
+    "react-validation": "^3.0.7",
     "remove-webpack-plugin": "^1.2.2"
   },
   "scripts": {

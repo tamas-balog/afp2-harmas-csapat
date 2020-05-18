@@ -130,11 +130,11 @@ dispatcher.register((payload)=>{
     if(payload.action.actionType === 'PREPARATION_UPDATE'){
         if(payload.action.payload.id !==''){
             axios.put('/preppizzas/' + payload.action.payload.id,{
-                sequentialNumber: payload.sequentialNumber,
+                sequentialNumber : payload.action.payload.sequentialNumber,
                 id : payload.action.payload.id,
-                preparedAt : payload.action.payload.preparedAt,
-            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err)
-            });
+                name : payload.action.payload.name,
+                preparedAt : payload.action.payload.preparedAt
+            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
         }
     }
     if(payload.action.actionType === 'ORDER_LIST') {

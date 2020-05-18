@@ -9,17 +9,25 @@ class PizzasCRUD extends React.Component {
         this.state = {
             id: "",
             pizzaName: "",
-            ingredients: []
+            ingredients: [{
+                name : "",
+                id : "",
+            }],
+            ingredientsId : 0
         };
     }
 
     addIngredients(){
-        this.setState({ingredients : [...this.state.ingredients,""]})
+        this.setState({ingredients : [...this.state.ingredients, ""]})
     }
-    handleChange(e, id){
-        this.state.ingredients[id] = e.target.value
+    handleChange(e,id){
+        this.state.ingredients[id] = {}
+        this.state.ingredients[id].name = e.target.value
+        this.state.ingredients[id].id = this.state.ingredientsId
+        this.setState({ingredientsId : ++this.state.ingredientsId})
         this.setState({ingredients: this.state.ingredients})
     }
+
     handleRemove(id){
         this.state.ingredients.splice(id,1)
        this.setState({ingredients: this.state.ingredients})
@@ -80,8 +88,10 @@ class PizzasCRUD extends React.Component {
                             return (
                                 <div key={id}>
                                     <input onChange={(e)=> this.handleChange(e,id)}
-                                           value ={ingredient} type={"text"} placeholder={"Ingredient"}/>
-                                           <button onClick={()=>this.handleRemove(id)} >Remove </button>
+                                           value = {ingredient.name}
+                                           type={"text"}
+                                           placeholder={"Ingredient"}/>
+                                           <button  className="btn btn-warning" onClick={()=>this.handleRemove(id)} >Remove </button>
                                 </div>
                             )
                         })

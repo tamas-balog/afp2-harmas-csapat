@@ -2,8 +2,9 @@ import React from "react";
 import DeliveriesCRUD from "./DeliveriesCRUD";
 import DeliveriesResults from "./DeliveriesResults"
 
+
 class DeliveriesPage extends React.Component {
-    render() {
+       render() {
         return (
             <div className="container-fluid">
                 <div className={"row"}>

@@ -7,6 +7,7 @@ class PreparationsCRUD extends React.Component{
         this.state={
             sequentialNumber : "",
             id : "",
+            name : "",
             preparedAt : ""
         }
     }
@@ -56,6 +57,7 @@ class PreparationsCRUD extends React.Component{
                                     PreparationActions.update(
                                         this.state.sequentialNumber,
                                         this.state.id,
+                                        this.state.name,
                                         this.state.preparedAt,
                                     );window.location.reload();} }
                             >Update
