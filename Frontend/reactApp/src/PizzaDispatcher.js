@@ -21,16 +21,16 @@ dispatcher.register((payload)=>{
     if(payload.action.actionType === 'PIZZA_SEARCH'){
             axios.get('/pizzas').then((resp)=>{
                 Pizzastore._pizzas = resp.data.filter((pizza)=>{
-                    return pizza.pizzaName.includes(payload.action.payload.pizzaName)
+                    return pizza.name.includes(payload.action.payload.name)
                 });
                 Pizzastore.emitChange();
             })
         }
     if(payload.action.actionType === 'PIZZA_CREATE'){
-        axios.post('/pizzas',{
+        axios.post('/pizzas/record',{
             id : payload.action.payload.id,
-            pizzaName : payload.action.payload.pizzaName,
-            pizzaPrice : payload.action.payload.pizzaPrice,
+            name : payload.action.payload.name,
+            price : payload.action.payload.price,
             ingredients : payload.action.payload.ingredients
         }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
     }

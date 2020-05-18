@@ -19,6 +19,7 @@ class OrdersList extends React.Component {
                             <button
                                 className="btn btn-info"
                                 onClick={() => {
+                                    window.location.reload();
                                     OrderActions.list()
                                 }}
                             >List

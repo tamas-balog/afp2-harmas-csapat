@@ -1,5 +1,6 @@
 import React from 'react';
 import Pizzastore from "../../../../stores/PizzaStore";
+import PizzaActions from "../../../../actions/PizzaActions";
 
 class PizzasResults extends React.Component{
 
@@ -26,7 +27,6 @@ class PizzasResults extends React.Component{
             <table className="table table-dark">
                 <thead>
                 <tr>
-                    <td>ID</td>
                     <td>Pizza Name</td>
                     <td>Pizza price</td>
                     <td>Ingredients</td>
@@ -37,12 +37,19 @@ class PizzasResults extends React.Component{
                     this.state.pizzas.map((pizza)=>{
                         return (
                             <tr key={pizza.id}>
-                                <td>{pizza.id}</td>
-                                <td>{pizza.pizzaName}</td>
-                                <td>{pizza.pizzaPrice}</td>
+                                <td>{pizza.name}</td>
+                                <td>{pizza.price}</td>
                                 <td><ol>{pizza.ingredients.map((ingredient)=>{
                                     return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
                                 })}</ol></td>
+                            <button
+                                className="btn btn-info"
+                                onClick={()=>{
+                                    PizzaActions.delete(pizza.id);
+                                    window.location.reload();}
+                                }
+                            >Delete
+                            </button>
                             </tr>
                         );
                     })

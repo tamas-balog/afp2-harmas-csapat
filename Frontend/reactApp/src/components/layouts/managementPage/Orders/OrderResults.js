@@ -28,11 +28,11 @@ class OrdersResult extends React.Component{
                 <tr>
                     <td>User first name</td>
                     <td>User last name</td>
-                    <td>City</td>
-                    <td>Address</td>
+                    <td>Postal code</td>
+                    <td>Street</td>
                     <td>Phone number</td>
                     <td>Comments</td>
-                    <td>Delivery at</td>
+                    <td>Delivered</td>
                     <td>Pizzas</td>
                 </tr>
                 </thead>
@@ -40,16 +40,17 @@ class OrdersResult extends React.Component{
                 {
                     this.state.orders.map((order)=>{
                         return(
-                            <tr key={order.user.firstName}>
-                                <td>{order.user.firstName}</td>
-                                <td>{order.user.lastName}</td>
-                                <td>{order.user.city}</td>
-                                <td>{order.user.address}</td>
-                                <td>{order.user.phoneNumber}</td>
-                                <td>{order.user.comments}</td>
-                                <td>{order.deliveryAt}</td>
+                            <tr key={order.customer.firstName}>
+                                <td>{order.customer.firstName}</td>
+                                <td>{order.customer.lastName}</td>
+                                <td>{order.customer.postalCode}</td>
+                                <td>{order.customer.street}</td>
+                                <td>{order.customer.phoneNumber}</td>
+                                <td>{order.customer.comments}</td>
+                                <td>{order.delivered ? "Delivered":"Not delivered"}</td>
                                 <td><ol>{order.pizzas.map((pizza)=>{
-                                    return (<li key={order.user.firstName+pizza.pizzaName}>{pizza.pizzaName}</li>)
+                                    console.log(pizza)
+                                    return (<li key={order.customer.firstName+pizza.pizza.name}>{pizza.pizza.name}</li>)
                                 })}</ol></td>
                             </tr>
                         );

@@ -8,12 +8,11 @@ class PizzasCRUD extends React.Component {
         super();
         this.state = {
             id: "",
-            pizzaName: "",
+            name: "",
             ingredients: [{
                 name : "",
                 id : "",
             }],
-            ingredientsId : 0
         };
     }
 
@@ -23,8 +22,6 @@ class PizzasCRUD extends React.Component {
     handleChange(e,id){
         this.state.ingredients[id] = {}
         this.state.ingredients[id].name = e.target.value
-        this.state.ingredients[id].id = this.state.ingredientsId
-        this.setState({ingredientsId : ++this.state.ingredientsId})
         this.setState({ingredients: this.state.ingredients})
     }
 
@@ -38,7 +35,7 @@ class PizzasCRUD extends React.Component {
             <div>
                 <table>
                     <td><input
-                        type={"number"} min="0" placeholder="ID"
+                        type={"hidden"} min="0" placeholder="ID"
                         value={this.state.id}
                         onChange={(e)=>{
                             let st = this.state;
@@ -47,7 +44,7 @@ class PizzasCRUD extends React.Component {
                         }
                         onKeyDown={(e) => {
                             if (e.key === 'Enter') {
-                                PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients);
+                                PizzaSearchActions.search(this.state.name, this.state.ingredients);
                             }
                         }}
                     /></td>
@@ -55,16 +52,16 @@ class PizzasCRUD extends React.Component {
                         <td>
                             <input
                                 type={"text"} placeholder={"Pizza name"}
-                                value={this.state.pizzaName}
+                                value={this.state.name}
                                 onChange={(e) => {
                                     let st = this.state;
-                                    st.pizzaName = e.target.value;
+                                    st.name = e.target.value;
                                     this.setState(st);
                                 }
                                 }
                                 onKeyDown={(e) => {
                                     if (e.key === 'Enter') {
-                                        PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients);
+                                        PizzaSearchActions.search(this.state.name, this.state.ingredients);
                                     }
                                 }}
                             /></td>
@@ -101,7 +98,7 @@ class PizzasCRUD extends React.Component {
                         <td colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={() => {PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients)
+                                onClick={() => {PizzaSearchActions.search(this.state.name, this.state.ingredients)
                                 }}
                             >Search
                             </button>
@@ -109,7 +106,7 @@ class PizzasCRUD extends React.Component {
                                 className="btn btn-info"
                                 onClick={()=>{PizzaActions.create(
                                     this.state.id,
-                                    this.state.pizzaName,
+                                    this.state.name,
                                     this.state.pizzaPrice,
                                     this.state.ingredients,
                                 );window.location.reload();}}
@@ -118,14 +115,6 @@ class PizzasCRUD extends React.Component {
                             <button onClick={(e)=> this.addIngredients(e)}
                                 className="btn btn-info"
                                 >Add Ingredients
-                            </button>
-                            <button
-                                className="btn btn-info"
-                                onClick={()=>{
-                                    PizzaActions.delete(this.state.id);
-                                    window.location.reload();}
-                                }
-                            >Delete
                             </button>
                         </td>
                     </tr>

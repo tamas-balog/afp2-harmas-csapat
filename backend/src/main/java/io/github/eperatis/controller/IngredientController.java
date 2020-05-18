@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public class IngredientController {
 
-    private IngredientManager ingredientManager;
+    private final IngredientManager ingredientManager;
 
     public IngredientController(IngredientManager ingredientManager) {
         this.ingredientManager = ingredientManager;

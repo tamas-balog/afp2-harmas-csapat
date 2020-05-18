@@ -10,13 +10,13 @@ class PizzaActions{
             }
         });
     }
-    create(id, pizzaName, pizzaPrice, ingredients){
+    create(id, name, price, ingredients){
         dispatcher.handleViewAction({
             actionType : 'PIZZA_CREATE',
             payload : {
                 id : id,
-                pizzaName : pizzaName,
-                pizzaPrice : pizzaPrice,
+                name : name,
+                price : price,
                 ingredients: ingredients
             }
         });

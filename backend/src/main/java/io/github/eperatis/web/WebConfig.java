@@ -1,13 +1,12 @@
 package io.github.eperatis.web;
 
 
-import io.github.eperatis.core.sevice.EmployeeManager;
-import io.github.eperatis.core.sevice.PizzaManager;
+import io.github.eperatis.core.service.EmployeeManager;
+import io.github.eperatis.core.service.PizzaManager;
 import io.github.eperatis.dao.EmployeeRepository;
 import io.github.eperatis.dao.PizzaRepository;
 import io.github.eperatis.service.EmployeeManagerImpl;
 import io.github.eperatis.service.PizzaManagerImpl;
-import io.github.eperatis.core.model.Scheduler;
 import io.github.eperatis.core.service.*;
 import io.github.eperatis.dao.*;
 import io.github.eperatis.service.*;

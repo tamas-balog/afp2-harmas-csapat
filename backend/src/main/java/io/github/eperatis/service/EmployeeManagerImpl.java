@@ -1,7 +1,7 @@
 package io.github.eperatis.service;
 
 import io.github.eperatis.core.model.Employee;
-import io.github.eperatis.core.sevice.EmployeeManager;
+import io.github.eperatis.core.service.EmployeeManager;
 import io.github.eperatis.dao.EmployeeRepository;
 
 import java.util.ArrayList;

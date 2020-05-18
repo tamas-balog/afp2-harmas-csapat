@@ -1,7 +1,7 @@
 package io.github.eperatis.controller;
 
 import io.github.eperatis.core.model.Employee;
-import io.github.eperatis.core.sevice.EmployeeManager;
+import io.github.eperatis.core.service.EmployeeManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

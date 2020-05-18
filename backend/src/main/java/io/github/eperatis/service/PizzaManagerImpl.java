@@ -2,13 +2,10 @@ package io.github.eperatis.service;
 
 import io.github.eperatis.core.model.Ingredient;
 import io.github.eperatis.core.model.Pizza;
-import io.github.eperatis.core.model.SchedulerMode;
 import io.github.eperatis.core.service.IngredientManager;
 import io.github.eperatis.core.service.PizzaManager;
-import io.github.eperatis.core.service.SchedulerManager;
 import io.github.eperatis.dao.PizzaRepository;
 import io.github.eperatis.dto.ListPizzasDTO;
-import io.github.eperatis.dto.PreparationListDTO;
 import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;

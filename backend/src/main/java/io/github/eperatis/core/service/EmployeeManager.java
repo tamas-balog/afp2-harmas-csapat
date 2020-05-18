@@ -1,4 +1,4 @@
-package io.github.eperatis.core.sevice;
+package io.github.eperatis.core.service;
 
 import io.github.eperatis.core.model.Employee;
 
