@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8785ab7e-4fa6-4466-9545-5e0209464f49" name="Default Changelist" comment="" />
+    <list default="true" id="8785ab7e-4fa6-4466-9545-5e0209464f49" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/Frontend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../reactApp/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetDeliveryList_database.json" beforeDir="false" afterPath="$PROJECT_DIR$/GetDeliveryList_database.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reactApp/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../reactApp/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reactApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../reactApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reactApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../reactApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reactApp/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reactApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../reactApp/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reactApp/src/components/footer/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../reactApp/src/components/footer/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reactApp/src/components/navbar/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../reactApp/src/components/navbar/index.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,11 +37,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.16.3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../afp2020spring-master/frontend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -40,11 +53,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Node.js.PizzaSearch.js">
+  <component name="RunManager" selected="Node.js.GetDeliveryList.js">
     <configuration name="Faker_Pizza.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Faker_Pizza.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="Faker.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Faker.js" working-dir="$PROJECT_DIR$">
+    <configuration name="GetDeliveryList.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/GetDeliveryList.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="GetOrderList.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/GetOrderList.js" working-dir="$PROJECT_DIR$">
@@ -58,11 +71,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.GetDeliveryList.js" />
+        <item itemvalue="Node.js.GetOrderList.js" />
         <item itemvalue="Node.js.PizzaSearch.js" />
         <item itemvalue="Node.js.UpdateOrderList.js" />
-        <item itemvalue="Node.js.GetOrderList.js" />
         <item itemvalue="Node.js.Faker_Pizza.js" />
-        <item itemvalue="Node.js.Faker.js" />
       </list>
     </recent_temporary>
   </component>
@@ -83,6 +96,7 @@
       <workItem from="1583871623252" duration="308000" />
       <workItem from="1583872218282" duration="559000" />
       <workItem from="1583931436570" duration="479000" />
+      <workItem from="1586603313358" duration="2384000" />
     </task>
     <servers />
   </component>
@@ -98,24 +112,36 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1045" y="198" key="#UpdateOrderList.js/0.0.1920.1040@0.0.1920.1040" timestamp="1583931703874" />
-    <state width="1259" height="115" key="GridCell.Tab.0.bottom" timestamp="1583871174487">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="2340" y="247" key="FileChooserDialogImpl" timestamp="1586615281215">
+      <screen x="1920" y="0" width="1280" height="984" />
     </state>
+    <state x="2340" y="247" key="FileChooserDialogImpl/0.0.1280.680/1920.0.1280.984@1920.0.1280.984" timestamp="1586615281215" />
+    <state width="1259" height="144" key="GridCell.Tab.0.bottom" timestamp="1586615282852">
+      <screen x="1920" y="0" width="1280" height="984" />
+    </state>
+    <state width="1259" height="144" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1280.984@0.0.1280.680" timestamp="1586603380633" />
+    <state width="1259" height="144" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1280.984@1920.0.1280.984" timestamp="1586615282852" />
     <state width="1259" height="115" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1583871174487" />
     <state width="936" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583863194964" />
-    <state width="1259" height="115" key="GridCell.Tab.0.center" timestamp="1583871174487">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1259" height="144" key="GridCell.Tab.0.center" timestamp="1586615282852">
+      <screen x="1920" y="0" width="1280" height="984" />
     </state>
+    <state width="1259" height="144" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1280.984@0.0.1280.680" timestamp="1586603380633" />
+    <state width="1259" height="144" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1280.984@1920.0.1280.984" timestamp="1586615282852" />
     <state width="1259" height="115" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1583871174487" />
     <state width="936" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583863194964" />
-    <state width="1259" height="115" key="GridCell.Tab.0.left" timestamp="1583871174487">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1259" height="144" key="GridCell.Tab.0.left" timestamp="1586615282852">
+      <screen x="1920" y="0" width="1280" height="984" />
     </state>
+    <state width="1259" height="144" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1280.984@0.0.1280.680" timestamp="1586603380633" />
+    <state width="1259" height="144" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1280.984@1920.0.1280.984" timestamp="1586615282852" />
     <state width="1259" height="115" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1583871174487" />
     <state width="936" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583863194964" />
-    <state width="1259" height="115" key="GridCell.Tab.0.right" timestamp="1583871174487">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1259" height="144" key="GridCell.Tab.0.right" timestamp="1586615282852">
+      <screen x="1920" y="0" width="1280" height="984" />
     </state>
+    <state width="1259" height="144" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1280.984@0.0.1280.680" timestamp="1586603380633" />
+    <state width="1259" height="144" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1280.984@1920.0.1280.984" timestamp="1586615282852" />
     <state width="1259" height="115" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1583871174487" />
     <state width="936" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583863194964" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1583931521022">

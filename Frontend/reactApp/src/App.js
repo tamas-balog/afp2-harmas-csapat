@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react";
+import './App.scss';
+import './index.css';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Link,
+    Redirect
+} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//Pages
+import Header from "./components/Header";
+import Navbar from "./components/navbar";
+import HomePage from "./components/layouts/HomePage";
+import AdminApp from "./components/layouts/adminPage/AdminApp";
+import PizzaSearch from "./components/layouts/buyingPage/PizzaSearchBar";
+import PizzaSearchResult from "./components/layouts/buyingPage/PizzaSearchResults";
+import TestPage from "./components/layouts/TestPage";
+import NotFound from "./components/layouts/404";
+import Footer from "./components/footer";
+
+/*function App() {
+    return (
+        <div>
+            <Navbar/>
+            <HomePage/>
+            <Footer/>
+        </div>
+    );
+}*/
+
+class App extends Component {
+    render() {
+        return <Router>
+            <Header/>
+            <Navbar/>
+            <div style={{width: "60%", marginLeft: "20%", marginRight: "20%"}}>
+            <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/adminapp" component={AdminApp}/>
+            <Route exact path="/pizzasearch" component={PizzaSearch}/>
+            <Route exact path="/pizzasearchres" component={PizzaSearchResult}/>
+            <Route exact path="/testpage" component={TestPage}/>
+            <Route exact path="/404" component={NotFound}/>
+            <Redirect to="/404"/>
+            </Switch>
+            </div>
+            <Footer/>
+        </Router>
+        //return <div className="App"><Navbar/>Hey<Footer/></div>;
+    }
 }
 
 export default App;
+
+

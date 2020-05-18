@@ -24,4 +24,4 @@ for (let i = 0; i < EMPLOYEES_COUNT; i++) {
 
 
 console.log(employees);
-fs.writeFileSync('./GetStaffList_database.json', JSON.stringify({employees:employees}));
+fs.writeFileSync('./GetOrderList_database.json', JSON.stringify({employees:employees}));

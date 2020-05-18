@@ -2,11 +2,11 @@ import dispatcher from '../PizzaDispatcher'
 
 class PizzaSearchActions{
 
-    search(name, ingredients){
+    search(pizzaName, ingredients){
         dispatcher.handleViewAction({
             actionType : 'PIZZA_SEARCH',
             payload : {
-                name : name,
+                pizzaName : pizzaName,
                 ingredients : ingredients
             }
         });

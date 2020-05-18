@@ -14,5 +14,5 @@ class PizzaStore extends EventEmitter{
         this.removeListener('Change', callback);
     }
 }
-var Pizzastore = new PizzaStore();
-export default Pizzastore;
+var store = new PizzaStore();
+export default store;

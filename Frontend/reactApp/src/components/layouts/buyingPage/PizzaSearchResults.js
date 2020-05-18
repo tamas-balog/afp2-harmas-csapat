@@ -34,7 +34,7 @@ class PizzaSearchResults extends React.Component{
                     this.state.pizzas.map((pizza)=>{
                         return (
                             <tr key={pizza.id}>
-                                <td>{pizza.name}</td>
+                                <td>{pizza.pizzaName}</td>
                                 <td><ol>{pizza.ingredients.map((ingredient)=>{
                                     return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
                                 })}</ol></td>
