@@ -14,6 +14,7 @@ import java.util.Collection;
 public class OrderManagerImpl implements OrderManager {
 
     private final OrderRepository repository;
+    private final ModelMapper modelMapper = new ModelMapper();
 
     public OrderManagerImpl(OrderRepository repository) {
         this.repository = repository;
@@ -32,5 +33,12 @@ public class OrderManagerImpl implements OrderManager {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         repository.save(input);
+    }
+
+    @Override
+    public Collection<ListOrdersDTO> deliveryOrder() {
+        ArrayList<ListOrdersDTO> listOrdersDTOS = new ArrayList<>();
+        repository.findAllByDeliveredFalse().forEach(x -> listOrdersDTOS.add(modelMapper.map(x, ListOrdersDTO.class)));;//.forEach(x -> deliveryListDTOS.add(modelMapper.map(x, Order.class)));
+        return listOrdersDTOS;
     }
 }

@@ -1,7 +1,7 @@
 package io.github.eperatis.dao;
 
+import io.github.eperatis.core.model.Order;
 import io.github.eperatis.core.model.OrderPizza;
-import io.github.eperatis.core.model.Pizza;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;

@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(value = "/orders")
 public class OrderController {
 
     private final OrderManager orderManager;
@@ -21,15 +20,20 @@ public class OrderController {
         this.orderManager = orderManager;
     }
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = "/orders")
     public Collection<ListOrdersDTO> listOrders() {
 
         return orderManager.listOrders();
     }
 
-    @RequestMapping(value = "/record", method = RequestMethod.POST)
+    @RequestMapping(value = "/orders/record", method = RequestMethod.POST)
     public void recordOrder(@RequestBody Order object) throws IOException {
 
         orderManager.recordOrder(object);
+    }
+
+    @RequestMapping(value = "/pizzas/delivery-lists")
+    public Collection<ListOrdersDTO> listPredationOrder() {
+        return orderManager.deliveryOrder();
     }
 }

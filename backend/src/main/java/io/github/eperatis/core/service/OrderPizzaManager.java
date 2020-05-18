@@ -12,4 +12,5 @@ public interface OrderPizzaManager {
     void recordOrderPizza(OrderPizza orderPizza);
 
     Collection<PreparationListDTO> preparationOrder();
+
 }
