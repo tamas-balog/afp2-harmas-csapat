@@ -1,9 +1,17 @@
 package io.github.eperatis.web;
 
+
+import io.github.eperatis.core.sevice.EmployeeManager;
+import io.github.eperatis.core.sevice.PizzaManager;
+import io.github.eperatis.dao.EmployeeRepository;
+import io.github.eperatis.dao.PizzaRepository;
+import io.github.eperatis.service.EmployeeManagerImpl;
+import io.github.eperatis.service.PizzaManagerImpl;
 import io.github.eperatis.core.model.Scheduler;
 import io.github.eperatis.core.service.*;
 import io.github.eperatis.dao.*;
 import io.github.eperatis.service.*;
+
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 
@@ -38,5 +46,9 @@ public class WebConfig {
     @Bean
     public SchedulerManager SchedulerManager(SchedulerRepository repository) {
         return new SchedulerManagerImpl(repository);
+    }
+
+    @Bean
+    public EmployeeManager employeeManager(EmployeeRepository repository) { return new EmployeeManagerImpl(repository);
     }
 }
