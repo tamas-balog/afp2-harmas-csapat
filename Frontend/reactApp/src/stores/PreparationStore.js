@@ -1,7 +1,7 @@
 import EventEmitter from 'events'
 
-class PizzaStore extends EventEmitter{
-    _pizzas = [];
+class PreparationStore extends EventEmitter{
+    _preparations = [];
     emitChange(){
         this.emit('Change');
     }
@@ -14,5 +14,7 @@ class PizzaStore extends EventEmitter{
         this.removeListener('Change', callback);
     }
 }
-var Pizzastore = new PizzaStore();
-export default Pizzastore;
+
+var Preparationstore = new PreparationStore();
+
+export default Preparationstore;

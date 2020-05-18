@@ -1,7 +1,7 @@
 import React from 'react';
-import Pizzastore from '../../../stores/PizzaStore';
+import Pizzastore from "../../../../stores/PizzaStore";
 
-class PizzaSearchResults extends React.Component{
+class PizzasResults extends React.Component{
 
     constructor() {
         super();
@@ -23,10 +23,12 @@ class PizzaSearchResults extends React.Component{
 
     render(){
         return(
-            <table className="table">
+            <table className="table table-dark">
                 <thead>
                 <tr>
+                    <td>ID</td>
                     <td>Pizza Name</td>
+                    <td>Pizza price</td>
                     <td>Ingredients</td>
                 </tr>
                 </thead>
@@ -35,7 +37,9 @@ class PizzaSearchResults extends React.Component{
                     this.state.pizzas.map((pizza)=>{
                         return (
                             <tr key={pizza.id}>
+                                <td>{pizza.id}</td>
                                 <td>{pizza.pizzaName}</td>
+                                <td>{pizza.pizzaPrice}</td>
                                 <td><ol>{pizza.ingredients.map((ingredient)=>{
                                     return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
                                 })}</ol></td>
@@ -49,4 +53,4 @@ class PizzaSearchResults extends React.Component{
     }
 }
 
-export default PizzaSearchResults;
+export default PizzasResults;

@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import { Router, Route, IndexRoute, BrowserRouter, browserHistory} from 'react-router-dom';
+import { Router, Route, IndexRoute, BrowserRouter, browserHistory, Switch, Link} from 'react-router-dom';
 import { Nav, NavItem, Navbar, Badge, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
+
 
 /*class Navbar extends React.Component{
     render() {
@@ -37,6 +37,7 @@ import { Nav, NavItem, Navbar, Badge, NavDropdown, Form, FormControl, Button } f
 export default Navbar;*/
 
 class NavbarElement extends React.Component{
+
     render() {
         return (
 
@@ -47,14 +48,13 @@ class NavbarElement extends React.Component{
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/testpage">Test</Nav.Link>
-                        <Nav.Link href="/pizzasearch">Menu</Nav.Link>
-                        <Nav.Link href="/adminapp">Admin</Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                        <Nav.Link href="/menu">Menu</Nav.Link>
+                        <NavDropdown title="Admin" id="basic-nav-dropdown">
+                            <NavDropdown.Item href="/employees">Employees</NavDropdown.Item>
+                            <NavDropdown.Item href="/deliveries">Deliveries</NavDropdown.Item>
+                            <NavDropdown.Item href="/preppizzas">Preparation List</NavDropdown.Item>
+                            <NavDropdown.Item href="/orders">Orders</NavDropdown.Item>
+                            <NavDropdown.Item href="/pizzas">Pizzas</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Form inline>
