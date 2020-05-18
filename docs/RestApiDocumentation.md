@@ -393,7 +393,7 @@
 
 <table>
     <tr>
-        <th colspan="2">AddPizza</th>
+        <th colspan="2">RecordPizza</th>
     </tr>
     <tr>
         <td>Description</td>
