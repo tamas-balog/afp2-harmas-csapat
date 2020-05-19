@@ -1,19 +1,18 @@
 import React from 'react';
-import PizzaStore from '../../../stores/PizzaStore'
+import Pizzastore from '../../../stores/PizzaStore';
 import PizzaSearchActions from "../../../actions/PizzaSearchActions";
 
 var pizzastocart = [];
 
 class PizzaSearchResults extends React.Component{
-    toCart(pizzaName, pizzaPrice) {
-        var pizza = [pizzaName, pizzaPrice]
+    toCart(name, price) {
+        var pizza = [name, price]
         pizzastocart.push(pizza)
-
-        console.log(pizzastocart);
+        console.log(pizza);
     }
 
     static returnCart() {
-        return pizzastocart
+        return pizzastocart;
     }
 
     constructor() {
@@ -54,7 +53,7 @@ class PizzaSearchResults extends React.Component{
                                     return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
                                 })}</ol></td>
                                 <td><button className="btn btn-info"
-                                            onClick={() => {this.toCart(pizza.pizzaName, pizza.pizzaPrice)} }
+                                            onClick={() => {this.toCart(pizza.name, pizza.price)} }
                                 >Kosárba</button></td>
                             </tr>
                         );

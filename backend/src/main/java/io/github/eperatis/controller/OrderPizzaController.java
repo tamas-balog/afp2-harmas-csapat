@@ -1,9 +1,11 @@
 package io.github.eperatis.controller;
 
+import io.github.eperatis.core.model.OrderPizza;
+import io.github.eperatis.core.model.Pizza;
 import io.github.eperatis.core.service.OrderPizzaManager;
 import io.github.eperatis.dto.PreparationListDTO;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -21,4 +23,8 @@ public class OrderPizzaController {
         return orderPizzaManager.preparationOrder();
     }
 
+    @RequestMapping(value = "/pizzas/preparation-lists/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Object> updatePreparation(@PathVariable Long id) {
+        return orderPizzaManager.updatePreparation(id);
+    }
 }

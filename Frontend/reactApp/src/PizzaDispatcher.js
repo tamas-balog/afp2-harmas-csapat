@@ -28,7 +28,6 @@ dispatcher.register((payload)=>{
         }
     if(payload.action.actionType === 'PIZZA_CREATE'){
         axios.post('/pizzas/record',{
-            id : payload.action.payload.id,
             name : payload.action.payload.name,
             price : payload.action.payload.price,
             ingredients : payload.action.payload.ingredients
@@ -110,32 +109,17 @@ dispatcher.register((payload)=>{
         }
     }
     if(payload.action.actionType === 'PREPARATION_SEARCH') {
-        if (payload.action.payload.id === "") {
-            axios.get('/preppizzas').then((resp)=>{
+            axios.get('/pizzas/preparation-lists').then((resp)=>{
                 Preparationstore._preparations = resp.data.filter((preparation)=>{
-                    return preparation.preparedAt.includes(payload.action.payload.preparedAt)
+                    return preparation;
                 });
                 Preparationstore.emitChange();
             })
-        }
-        else {
-            axios.get('/preppizzas').then((resp) => {
-                Preparationstore._preparations = resp.data.filter((preparation) => {
-                    return preparation.id == payload.action.payload.id;
-                });
-                Preparationstore.emitChange();
-            })
-        }
     }
     if(payload.action.actionType === 'PREPARATION_UPDATE'){
-        if(payload.action.payload.id !==''){
-            axios.put('/preppizzas/' + payload.action.payload.id,{
-                sequentialNumber : payload.action.payload.sequentialNumber,
-                id : payload.action.payload.id,
-                name : payload.action.payload.name,
-                preparedAt : payload.action.payload.preparedAt
-            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
-        }
+            axios.put('/pizzas/preparation-lists/' + payload.action.payload.id)
+                .then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
+
     }
     if(payload.action.actionType === 'ORDER_LIST') {
             axios.get('/orders').then((resp)=>{

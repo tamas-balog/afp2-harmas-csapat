@@ -1,23 +1,18 @@
 import dispatcher from '../PizzaDispatcher'
 
 class PreparationActions{
-    search(id, prepared){
+    list(){
         dispatcher.handleViewAction({
             actionType : 'PREPARATION_SEARCH',
             payload : {
-                id : id,
-                prepared : prepared
             }
         });
     }
-    update(sequentialNumber, id,name, prepared){
+    update(id){
         dispatcher.handleViewAction({
             actionType : 'PREPARATION_UPDATE',
             payload : {
-                sequentialNumber : sequentialNumber,
-                id : id,
-                name : name,
-                prepared : prepared
+                id : id
             }
         });
     }

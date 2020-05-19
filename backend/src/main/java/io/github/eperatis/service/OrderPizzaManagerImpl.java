@@ -7,6 +7,8 @@ import io.github.eperatis.core.service.SchedulerManager;
 import io.github.eperatis.dao.OrderPizzaRepository;
 import io.github.eperatis.dto.PreparationListDTO;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -48,5 +50,15 @@ public class OrderPizzaManagerImpl implements OrderPizzaManager {
         return preparationListDTOS;
     }
 
+    @Override
+    public ResponseEntity<Object> updatePreparation(Long id) {
+        if (repository.findById(id).isPresent()) {
 
+            repository.findById(id).get().setPrepared(true);
+            OrderPizza orderPizza = repository.findById(id).get();
+            repository.save(orderPizza);
+            return  new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }

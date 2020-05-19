@@ -36,17 +36,6 @@ function Menu() {
     )
 }
 
-function Menu() {
-    return(
-        <React.Fragment>
-            <PizzaSearch />
-            <div style={{paddingTop: "3%"}}>
-                <PizzaSearchResult />
-            </div>
-        </React.Fragment>
-    )
-}
-
 class App extends Component {
     render() {
         return <Router>

@@ -1,11 +1,14 @@
 import React from 'react';
 import Preparationstore from "../../../../stores/PreparationStore";
+import PreparationActions from "../../../../actions/PreparationActions";
 
 class PreparationsResult extends React.Component{
 
     constructor(){
         super();
-        this.state = {preparations : []};
+        this.state = { 
+            preparations : []
+        };
         this._onChange = this._onChange.bind(this);
     }
 
@@ -26,21 +29,26 @@ class PreparationsResult extends React.Component{
             <table className="table table-dark">
                 <thead>
                 <tr>
-                    <td>Sequential number</td>
-                    <td>Id</td>
                     <td>Name</td>
-                    <td>Prepared at</td>
+                    <td>Prepared</td>
                 </tr>
                 </thead>
                 <tbody>
                 {
                     this.state.preparations.map((preparation)=>{
                         return(
-                            <tr key={preparation.sequentialNumber}>
-                                <td>{preparation.sequentialNumber}</td>
-                                <td>{preparation.id}</td>
-                                <td>{preparation.name}</td>
-                                <td>{preparation.prepared}</td>
+                            <tr key={preparation.id}>
+                                <td>{preparation.pizza.name}</td>
+                                <td>{preparation.prepared}
+                                <button
+                                className="btn btn-info"
+                                onClick={()=>{
+                                    PreparationActions.update(
+                                        preparation.id,
+                                    );window.location.reload();}  }
+                                >Done
+                                </button>
+                                </td>
                             </tr>
                         );
                     })

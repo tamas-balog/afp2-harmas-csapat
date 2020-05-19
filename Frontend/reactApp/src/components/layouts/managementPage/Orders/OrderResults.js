@@ -49,7 +49,6 @@ class OrdersResult extends React.Component{
                                 <td>{order.customer.comments}</td>
                                 <td>{order.delivered ? "Delivered":"Not delivered"}</td>
                                 <td><ol>{order.pizzas.map((pizza)=>{
-                                    console.log(pizza)
                                     return (<li key={order.customer.firstName+pizza.pizza.name}>{pizza.pizza.name}</li>)
                                 })}</ol></td>
                             </tr>
