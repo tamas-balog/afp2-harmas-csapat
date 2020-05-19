@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PizzaSearchActions from "../../../actions/PizzaSearchActions";
 
 class PizzaSearchBar extends React.Component {
@@ -14,10 +14,11 @@ class PizzaSearchBar extends React.Component {
     render() {
         return (
             <div>
+                <h2 style={{textAlign: "center", paddingBottom: "20px"}}>Válasszon széleskörű pizza kínálatunkból!</h2>
                 <table>
                     <tbody>
                     <tr>
-                        <td>Pizza name</td>
+                        <td>Pizza neve: </td>
                         <td>
                             <input
                                 type={"text"}
@@ -28,16 +29,11 @@ class PizzaSearchBar extends React.Component {
                                     this.setState(st);
                                     }
                                 }
-                                /*onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
-                                        PizzaSearchActions.search(this.state.name, this.state.ingredients);
-                                    }
-                                }}*/
                             /></td>
                     </tr>
 
                     <tr>
-                        <td>Ingredients</td>
+                        <td>Összetevő neve: </td>
                         <td>
                             <input
                                 type={"text"}
@@ -53,6 +49,7 @@ class PizzaSearchBar extends React.Component {
                         <td colSpan={2}>
                             <button
                                 className="btn btn-info"
+
                                 onClick={() => {PizzaSearchActions.search(this.state.name, this.state.ingredients);
                                 }}
                             >Search

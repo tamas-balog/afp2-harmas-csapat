@@ -1,7 +1,20 @@
 import React from 'react';
-import Pizzastore from '../../../stores/PizzaStore';
+import PizzaStore from '../../../stores/PizzaStore'
+import PizzaSearchActions from "../../../actions/PizzaSearchActions";
+
+var pizzastocart = [];
 
 class PizzaSearchResults extends React.Component{
+    toCart(pizzaName, pizzaPrice) {
+        var pizza = [pizzaName, pizzaPrice]
+        pizzastocart.push(pizza)
+
+        console.log(pizzastocart);
+    }
+
+    static returnCart() {
+        return pizzastocart
+    }
 
     constructor() {
         super();
@@ -26,8 +39,9 @@ class PizzaSearchResults extends React.Component{
             <table className="table">
                 <thead>
                 <tr>
-                    <td>Pizza Name</td>
-                    <td>Ingredients</td>
+                    <td>Név: </td>
+                    <td>Összetevők:</td>
+                    <td></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,6 +53,9 @@ class PizzaSearchResults extends React.Component{
                                 <td><ol>{pizza.ingredients.map((ingredient)=>{
                                     return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
                                 })}</ol></td>
+                                <td><button className="btn btn-info"
+                                            onClick={() => {this.toCart(pizza.pizzaName, pizza.pizzaPrice)} }
+                                >Kosárba</button></td>
                             </tr>
                         );
                     })

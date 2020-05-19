@@ -29,6 +29,7 @@ function generatePizza() {
 
 function generateOrder(){
     let order = {
+        id: null,
         user : generateUser(),
         deliveryAt : faker.date.future(0.01),
         pizzas : generatePizza()
@@ -39,7 +40,8 @@ function generateOrder(){
 let orders= [];
 const ORDERS_COUNT = 100;
 for (let i = 0; i < ORDERS_COUNT; i++) {
-    orders[i] = generateOrder()
+    orders[i] = generateOrder();
+    orders[i]['id'] = i;
 }
 
 
