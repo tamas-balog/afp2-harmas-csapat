@@ -32,7 +32,7 @@ dispatcher.register((payload)=>{
             name : payload.action.payload.name,
             price : payload.action.payload.price,
             ingredients : payload.action.payload.ingredients
-        }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
+        }).then(resp=>{if(!alert("Pizza added successfully")){window.location.reload();}}).catch(error => {alert(error.response.data.message) });
     }
     if(payload.action.actionType === 'PIZZA_DELETE'){
         axios.delete('/pizzas/' + payload.action.payload.id).

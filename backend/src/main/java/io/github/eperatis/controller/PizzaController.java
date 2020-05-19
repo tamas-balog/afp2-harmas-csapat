@@ -1,8 +1,12 @@
 package io.github.eperatis.controller;
 
+import io.github.eperatis.core.model.ErrorMessage;
 import io.github.eperatis.core.model.Pizza;
 import io.github.eperatis.core.service.PizzaManager;
 import io.github.eperatis.dto.ListPizzasDTO;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -23,8 +27,22 @@ public class PizzaController {
     }
 
     @RequestMapping(value = {"/record"}, method = RequestMethod.POST)
-    public void recordPizza(@RequestBody Pizza pizza) {
+    public ResponseEntity<Object> recordPizza(@RequestBody Pizza pizza) {
+        if (pizza.getName().equals("")) {
+            ErrorMessage errorMessage = new ErrorMessage("Pizza name is required");
+            return new ResponseEntity<>(errorMessage, HttpStatus.LENGTH_REQUIRED);
+        }
+        if (pizza.getPrice() <= 0) {
+            ErrorMessage errorMessage = new ErrorMessage("Pizza price must be greater than 0");
+            return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        if (pizza.getIngredients().iterator().next().getName().equals("")) {
+            ErrorMessage errorMessage = new ErrorMessage("Pizza must have at least 1 ingredient");
+            return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
         pizzaManager.recordPizza(pizza);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = {"/{id}"})

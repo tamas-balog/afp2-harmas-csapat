@@ -8,7 +8,7 @@ class PreparationsCRUD extends React.Component{
             sequentialNumber : "",
             id : "",
             name : "",
-            preparedAt : ""
+            prepared : ""
         }
     }
 
@@ -27,17 +27,17 @@ class PreparationsCRUD extends React.Component{
                             }
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter') {
-                                    PreparationActions.search(this.state.id, this.state.preparedAt);
+                                    PreparationActions.search(this.state.id, this.state.prepared);
                                 }
                             }}
                         /></td>
                     </tr>
                     <tr>
                         <td><input type={"text"} placeholder="Prepared at"
-                                   value={this.state.preparedAt}
+                                   value={this.state.prepared}
                                    onChange={(e)=>{
                                        let st = this.state;
-                                       st.preparedAt = e.target.value;
+                                       st.prepared = e.target.value;
                                        this.setState(st);
                                    }}
                         /></td>
@@ -47,7 +47,7 @@ class PreparationsCRUD extends React.Component{
                             colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={()=>{PreparationActions.search(this.state.id, this.state.preparedAt)
+                                onClick={()=>{PreparationActions.search(this.state.id, this.state.prepared)
                                 }}
                             >Search
                             </button>
@@ -58,7 +58,7 @@ class PreparationsCRUD extends React.Component{
                                         this.state.sequentialNumber,
                                         this.state.id,
                                         this.state.name,
-                                        this.state.preparedAt,
+                                        this.state.prepared,
                                     );window.location.reload();} }
                             >Update
                             </button>

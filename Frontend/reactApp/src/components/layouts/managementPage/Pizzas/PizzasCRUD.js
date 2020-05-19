@@ -7,11 +7,9 @@ class PizzasCRUD extends React.Component {
     constructor() {
         super();
         this.state = {
-            id: "",
             name: "",
             ingredients: [{
                 name : "",
-                id : "",
             }],
         };
     }
@@ -34,20 +32,6 @@ class PizzasCRUD extends React.Component {
         return (
             <div>
                 <table>
-                    <td><input
-                        type={"hidden"} min="0" placeholder="ID"
-                        value={this.state.id}
-                        onChange={(e)=>{
-                            let st = this.state;
-                            st.id = e.target.value;
-                            this.setState(st);}
-                        }
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                PizzaSearchActions.search(this.state.name, this.state.ingredients);
-                            }
-                        }}
-                    /></td>
                     <tr>
                         <td>
                             <input
@@ -69,7 +53,7 @@ class PizzasCRUD extends React.Component {
                     <tr>
                         <td>
                             <input
-                                type={"text"} placeholder={"Pizza price"}
+                                type={"number"} placeholder={"Pizza price"} min = "0"
                                 value={this.state.pizzaPrice}
                                 onChange={(e) => {
                                     let st = this.state;
@@ -109,7 +93,7 @@ class PizzasCRUD extends React.Component {
                                     this.state.name,
                                     this.state.pizzaPrice,
                                     this.state.ingredients,
-                                );window.location.reload();}}
+                                );}}
                             >Register
                             </button>
                             <button onClick={(e)=> this.addIngredients(e)}

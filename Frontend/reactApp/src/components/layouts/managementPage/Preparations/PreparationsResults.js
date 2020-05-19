@@ -40,7 +40,7 @@ class PreparationsResult extends React.Component{
                                 <td>{preparation.sequentialNumber}</td>
                                 <td>{preparation.id}</td>
                                 <td>{preparation.name}</td>
-                                <td>{preparation.preparedAt}</td>
+                                <td>{preparation.prepared}</td>
                             </tr>
                         );
                     })
