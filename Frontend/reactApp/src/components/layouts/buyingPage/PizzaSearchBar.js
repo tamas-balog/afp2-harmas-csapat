@@ -6,7 +6,7 @@ class PizzaSearchBar extends React.Component {
     constructor() {
         super();
         this.state = {
-            pizzaName: "",
+            name: "",
             ingredients: ""
         };
     }
@@ -22,10 +22,10 @@ class PizzaSearchBar extends React.Component {
                         <td>
                             <input
                                 type={"text"}
-                                value={this.state.pizzaName}
+                                value={this.state.name}
                                 onChange={(e) => {
                                     let st = this.state;
-                                    st.pizzaName = e.target.value;
+                                    st.name = e.target.value;
                                     this.setState(st);
                                     }
                                 }
@@ -49,8 +49,9 @@ class PizzaSearchBar extends React.Component {
                         <td colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={() => {PizzaSearchActions.search(this.state.pizzaName, this.state.ingredients);  console.log(this.state.pizzaName); //window.location.reload(false);
-                                } }
+
+                                onClick={() => {PizzaSearchActions.search(this.state.name, this.state.ingredients);
+                                }}
                             >Search
                             </button>
                         </td>

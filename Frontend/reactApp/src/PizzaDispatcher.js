@@ -1,6 +1,10 @@
 import {Dispatcher} from 'flux';
 import axios from 'axios';
-import store from './stores/PizzaStore'
+import Pizzastore from './stores/PizzaStore'
+import Staffstore from "./stores/StaffStore";
+import Deliverystore from "./stores/DeliveryStore";
+import Preparationstore from "./stores/PreparationStore";
+import Orderstore from "./stores/OrderStore";
 
 class PizzaDispatcher extends Dispatcher{
 
@@ -15,39 +19,134 @@ const dispatcher = new PizzaDispatcher();
 
 dispatcher.register((payload)=>{
     if(payload.action.actionType === 'PIZZA_SEARCH'){
-    if(payload.action.payload.pizzaName !== ''){
-        axios.get('/pizzas').then((resp)=>{
-            store._pizzas = resp.data.filter((pizza)=>{
-                console.log(pizza.pizzaName)
-                return pizza.pizzaName.includes(payload.action.payload.pizzaName)
-            });
-            store.emitChange();
-        });
+            axios.get('/pizzas').then((resp)=>{
+                Pizzastore._pizzas = resp.data.filter((pizza)=>{
+                    return pizza.name.includes(payload.action.payload.name)
+                });
+                Pizzastore.emitChange();
+            })
+        }
+    if(payload.action.actionType === 'PIZZA_CREATE'){
+        axios.post('/pizzas/record',{
+            id : payload.action.payload.id,
+            name : payload.action.payload.name,
+            price : payload.action.payload.price,
+            ingredients : payload.action.payload.ingredients
+        }).then(resp=>{if(!alert("Pizza added successfully")){window.location.reload();}}).catch(error => {alert(error.response.data.message) });
     }
-    if(payload.action.payload.ingredients !== '') {
-        axios.get('/pizzas').then((resp)=>{
-            store._pizzas = resp.data.filter((pizza)=>{
-                console.log(payload.action.payload.ingredients)
-                for (let i = 0; i < pizza.ingredients.length; i++) {
-                    if(payload.action.payload.ingredients === pizza.ingredients[i].name)
-                        return true;
-                }
-                return false
-            });
-            store.emitChange();
-        });
+    if(payload.action.actionType === 'PIZZA_DELETE'){
+        axios.delete('/pizzas/' + payload.action.payload.id).
+        then(resp=>{console.log(resp.data)}).catch(err => console.log(err))
     }
-    else
-    {
-        axios.get('/pizzas').then((resp)=>{
-            store._pizzas = resp.data.filter((pizza)=>{
-                return pizza.pizzaName.includes(payload.action.payload.pizzaName)
-            });
-            store.emitChange();
-        });
+    if(payload.action.actionType === 'STAFF_SEARCH') {
+        if (payload.action.payload.id === "") {
+            axios.get('/employees').then((resp)=>{
+                Staffstore._staff = resp.data.filter((employee)=>{
+                    return employee.firstName.includes(payload.action.payload.firstName)
+                });
+                Staffstore.emitChange();
+            })
+        }
+        else {
+            axios.get('/employees').then((resp) => {
+                Staffstore._staff = resp.data.filter((employee) => {
+                    return employee.id == payload.action.payload.id;
+                });
+                Staffstore.emitChange();
+            })
+        }
     }
+    if(payload.action.actionType === 'STAFF_REGISTER'){
+        axios.post('/employees',{
+            id : payload.action.payload.id,
+            positionCode : payload.action.payload.positionCode,
+            firstName : payload.action.payload.firstName,
+            lastName : payload.action.payload.lastName,
+            email : payload.action.payload.email,
+            phoneNumber : payload.action.payload.phoneNumber,
+            password : payload.action.payload.password
+        }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
     }
+    if(payload.action.actionType ==='STAFF_DELETE'){
+        axios.delete('/employees/' + payload.action.payload.id).
+        then(resp=>{console.log(resp.data)}).catch(err => console.log(err))
+    }
+    if(payload.action.actionType === 'STAFF_UPDATE'){
+        if(payload.action.payload.id !==''){
+            axios.put('/employees/' + payload.action.payload.id,{
+                id : payload.action.payload.id,
+                positionCode : payload.action.payload.positionCode,
+                firstName : payload.action.payload.firstName,
+                lastName : payload.action.payload.lastName,
+                email : payload.action.payload.email,
+                phoneNumber : payload.action.payload.phoneNumber,
+                password : payload.action.payload.password
+            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
+        }
+    }
+    if(payload.action.actionType === 'DELIVERY_SEARCH') {
+        if (payload.action.payload.id === "") {
+            axios.get('/deliveries').then((resp)=>{
+                Deliverystore._deliveries = resp.data.filter((delivery)=>{
+                    return delivery.deliveredAt.includes(payload.action.payload.deliveredAt)
+                });
+                Deliverystore.emitChange();
+            })
+        }
+        else {
+            axios.get('/deliveries').then((resp) => {
+                Deliverystore._deliveries = resp.data.filter((delivery) => {
+                    return delivery.id == payload.action.payload.id;
+                });
+                Deliverystore.emitChange();
+            })
+        }
+    }
+    if(payload.action.actionType === 'DELIVERY_UPDATE'){
+        if(payload.action.payload.id !==''){
+            axios.put('/deliveries/' + payload.action.payload.id,{
+                deliveredAt : payload.action.payload.deliveredAt,
+            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
+        }
+    }
+    if(payload.action.actionType === 'PREPARATION_SEARCH') {
+        if (payload.action.payload.id === "") {
+            axios.get('/preppizzas').then((resp)=>{
+                Preparationstore._preparations = resp.data.filter((preparation)=>{
+                    return preparation.preparedAt.includes(payload.action.payload.preparedAt)
+                });
+                Preparationstore.emitChange();
+            })
+        }
+        else {
+            axios.get('/preppizzas').then((resp) => {
+                Preparationstore._preparations = resp.data.filter((preparation) => {
+                    return preparation.id == payload.action.payload.id;
+                });
+                Preparationstore.emitChange();
+            })
+        }
+    }
+    if(payload.action.actionType === 'PREPARATION_UPDATE'){
+        if(payload.action.payload.id !==''){
+            axios.put('/preppizzas/' + payload.action.payload.id,{
+                sequentialNumber : payload.action.payload.sequentialNumber,
+                id : payload.action.payload.id,
+                name : payload.action.payload.name,
+                preparedAt : payload.action.payload.preparedAt
+            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
+        }
+    }
+    if(payload.action.actionType === 'ORDER_LIST') {
+            axios.get('/orders').then((resp)=>{
+                Orderstore._orders = resp.data.filter((order)=>{
+                    return order;
+                });
+                Orderstore.emitChange();
+            })
+        }
 });
+
 
 export default dispatcher;
 

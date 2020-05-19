@@ -23,15 +23,15 @@ class PizzaSearchResults extends React.Component{
     }
 
     _onChange(){
-        this.setState({pizzas : PizzaStore._pizzas});
+        this.setState({pizzas : Pizzastore._pizzas});
     }
 
     componentDidMount() {
-        PizzaStore.addChangeListener(this._onChange);
+        Pizzastore.addChangeListener(this._onChange);
     }
 
     componentWillUnmount() {
-        PizzaStore.removeChangeListener(this._onChange);
+        Pizzastore.removeChangeListener(this._onChange);
     }
 
     render(){
@@ -49,7 +49,7 @@ class PizzaSearchResults extends React.Component{
                     this.state.pizzas.map((pizza)=>{
                         return (
                             <tr key={pizza.id}>
-                                <td>{pizza.pizzaName}</td>
+                                <td>{pizza.name}</td>
                                 <td><ol>{pizza.ingredients.map((ingredient)=>{
                                     return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
                                 })}</ol></td>
