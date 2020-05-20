@@ -2,12 +2,12 @@ import dispatcher from '../PizzaDispatcher'
 
 class ToCartActions{
 
-    add(pizzaName, ingredients){
+    add(customer, pizzas){
         dispatcher.handleViewAction({
             actionType : 'TO_CART',
             payload : {
-                pizzaName : pizzaName,
-                ingredients : ingredients
+                customer : customer,
+                pizzas : pizzas
             }
         });
     }

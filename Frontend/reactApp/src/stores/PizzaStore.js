@@ -2,6 +2,7 @@ import EventEmitter from 'events'
 
 class PizzaStore extends EventEmitter{
     _pizzas = [];
+    _pizzaToCart = [];
     emitChange(){
         this.emit('Change');
     }
