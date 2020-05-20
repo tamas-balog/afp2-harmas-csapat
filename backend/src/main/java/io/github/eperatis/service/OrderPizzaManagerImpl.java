@@ -1,7 +1,9 @@
 package io.github.eperatis.service;
 
+import io.github.eperatis.core.model.Order;
 import io.github.eperatis.core.model.OrderPizza;
 import io.github.eperatis.core.model.SchedulerMode;
+import io.github.eperatis.core.service.OrderManager;
 import io.github.eperatis.core.service.OrderPizzaManager;
 import io.github.eperatis.core.service.SchedulerManager;
 import io.github.eperatis.dao.OrderPizzaRepository;
@@ -17,11 +19,13 @@ public class OrderPizzaManagerImpl implements OrderPizzaManager {
 
     private final OrderPizzaRepository repository;
     private final SchedulerManager schedulerManager;
+    private final OrderManager orderManager;
     private final ModelMapper modelMapper = new ModelMapper();
 
-    public OrderPizzaManagerImpl(OrderPizzaRepository repository, SchedulerManager schedulerManager) {
+    public OrderPizzaManagerImpl(OrderPizzaRepository repository, SchedulerManager schedulerManager, OrderManager orderManager) {
         this.repository = repository;
         this.schedulerManager = schedulerManager;
+        this.orderManager = orderManager;
     }
 
     @Override
@@ -57,8 +61,32 @@ public class OrderPizzaManagerImpl implements OrderPizzaManager {
             repository.findById(id).get().setPrepared(true);
             OrderPizza orderPizza = repository.findById(id).get();
             repository.save(orderPizza);
+
+            Collection<Order> temp = orderManager.listNotDeliveredNotAssigned();
+            Collection<Order> neededToDeliver = new ArrayList<Order>();
+
+            for (int i = 0; i < temp.size(); i++) {
+                Order order = (Order)temp.toArray()[i];
+                if (allIsPrepared(order)){
+                    neededToDeliver.add(order);
+                }
+            }
+            orderManager.assignDeliveries(neededToDeliver);
             return  new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @Override
+    public boolean allIsPrepared(Order order) {
+        Collection<OrderPizza> valami = repository.findAllByOrderEquals(order);
+        //OrderPizza[] containingOrder = (OrderPizza[]) repository.findAllByOrderContaining(order).toArray();
+        for (int i = 0; i < valami.size(); i++) {
+            OrderPizza orderPizza = (OrderPizza)valami.toArray()[i];
+            if (!orderPizza.isPrepared()) {
+                return false;
+            }
+        }
+        return true;
     }
 }

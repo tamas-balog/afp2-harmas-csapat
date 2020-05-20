@@ -1,5 +1,6 @@
 package io.github.eperatis.dao;
 
+import io.github.eperatis.core.model.Order;
 import io.github.eperatis.core.model.OrderPizza;
 import org.springframework.data.repository.CrudRepository;
 
@@ -16,4 +17,8 @@ public interface OrderPizzaRepository extends CrudRepository<OrderPizza, Long> {
     Collection<OrderPizza> findAllByPreparedFalseOrderByPizza();
 
     Optional<OrderPizza> findById(Long id);
+
+    Collection<OrderPizza> findAllByOrderContaining(Order order);
+
+    Collection<OrderPizza> findAllByOrderEquals(Order order);
 }

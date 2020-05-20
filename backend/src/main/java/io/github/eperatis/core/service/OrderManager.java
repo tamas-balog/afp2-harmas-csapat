@@ -16,4 +16,8 @@ public interface OrderManager {
     Collection<ListOrdersDTO> deliveryOrder();
 
     ResponseEntity<Object> updateDelivery(Long id);
+
+    void assignDeliveries(Collection<Order> neededToDeliver);
+
+    Collection<Order> listNotDeliveredNotAssigned();
 }

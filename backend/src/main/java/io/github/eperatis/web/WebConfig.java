@@ -38,8 +38,10 @@ public class WebConfig {
     }
 
     @Bean
-    public OrderPizzaManager orderPizzaManager(OrderPizzaRepository repository, SchedulerManager schedulerManager) {
-        return new OrderPizzaManagerImpl(repository, schedulerManager);
+    public OrderPizzaManager orderPizzaManager(OrderPizzaRepository repository,
+                                               SchedulerManager schedulerManager,
+                                               OrderManager orderManager) {
+        return new OrderPizzaManagerImpl(repository, schedulerManager, orderManager);
     }
 
     @Bean

@@ -21,6 +21,7 @@ public class Pizza {
     @GeneratedValue
     private Long id;
 
+    @Column(unique = true)
     private String name;
 
     private int price;

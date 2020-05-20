@@ -41,7 +41,12 @@ public class PizzaController {
             ErrorMessage errorMessage = new ErrorMessage("Pizza must have at least 1 ingredient");
             return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        pizzaManager.recordPizza(pizza);
+        try {
+            pizzaManager.recordPizza(pizza);
+        } catch (Exception e) {
+            ErrorMessage errorMessage = new ErrorMessage(e.getMessage());
+            return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
