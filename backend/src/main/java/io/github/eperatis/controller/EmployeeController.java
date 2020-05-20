@@ -24,6 +24,6 @@ public class EmployeeController {
     @RequestMapping(value = {"/staff"}, method = RequestMethod.GET)
     public Collection<Employee> listStaff() { return employeeManager.listStaff(); }
 
-    @RequestMapping(value = {"/{id}"}, method = RequestMethod.DELETE)
+    @RequestMapping(value = {"staff/{id}"}, method = RequestMethod.DELETE)
     public void deleteStaff(@PathVariable Long id) { employeeManager.deleteStaff(id);}
 }

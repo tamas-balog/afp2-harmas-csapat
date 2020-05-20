@@ -28,8 +28,8 @@ public class WebConfig {
     }
 
     @Bean
-    public OrderManager orderManager(OrderRepository repository) {
-        return new OrderManagerImpl(repository);
+    public OrderManager orderManager(OrderRepository repository, EmployeeManager employeeManager) {
+        return new OrderManagerImpl(repository, employeeManager);
     }
 
     @Bean

@@ -1,5 +1,6 @@
 import React from 'react';
 import Deliverystore from "../../../../stores/DeliveryStore";
+import DeliveriesActions from '../../../../actions/DeliveriesActions'
 
 class DeliveriesResult extends React.Component{
 
@@ -26,16 +27,14 @@ class DeliveriesResult extends React.Component{
             <table className="table table-dark">
                 <thead>
                 <tr>
-                    <td>Id</td>
                     <td>Delivery man</td>
-                    <td>Delivery at</td>
-                    <td>User first name</td>
-                    <td>User last name</td>
+                    <td>Customer name</td>
                     <td>Postal code</td>
-                    <td>City</td>
-                    <td>Address</td>
+                    <td>Street</td>
                     <td>Phone number</td>
                     <td>Comments</td>
+                    <td>Pizzas</td>
+                    <td>Delivered</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,16 +42,26 @@ class DeliveriesResult extends React.Component{
                     this.state.deliveries.map((delivery)=>{
                         return(
                             <tr key={delivery.id}>
-                                <td>{delivery.id}</td>
-                                <td>{delivery.name}</td>
-                                <td>{delivery.deliveredAt}</td>
-                                <td>{delivery.user.firstName}</td>
-                                <td>{delivery.user.lastName}</td>
-                                <td>{delivery.user.postalCode}</td>
-                                <td>{delivery.user.city}</td>
-                                <td>{delivery.user.address}</td>
-                                <td>{delivery.user.phoneNumber}</td>
-                                <td>{delivery.user.comments}</td>
+                                <td>{delivery.employee.firstName + " " + delivery.employee.lastName}</td>
+                                <td>{delivery.customer.firstName + " " + delivery.customer.lastName}</td>
+                                <td>{delivery.customer.postalCode}</td>
+                                <td>{delivery.customer.street}</td>
+                                <td>{delivery.customer.phoneNumber}</td>
+                                <td>{delivery.customer.comments}</td>
+                                <td><ol>{delivery.pizzas.map((pizza)=> {
+                                    console.log(pizza);
+                                    return (<li key={delivery.id + pizza.pizza.name}> {pizza.pizza.name}</li>)
+                                })}
+                                </ol></td>
+                            <button
+                                className="btn btn-info"
+                                onClick={()=>{
+                                    DeliveriesActions.update(
+                                        delivery.id,
+                                    );window.location.reload();}}
+                            >Done
+                            </button>
+
                             </tr>
                         );
                     })

@@ -1,6 +1,7 @@
 package io.github.eperatis.dto;
 
 import io.github.eperatis.core.model.Customer;
+import io.github.eperatis.core.model.Employee;
 import io.github.eperatis.core.model.OrderPizza;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,6 @@ public class ListOrdersDTO {
     private boolean isDelivered;
 
     private Collection<OrderPizza> pizzas;
+
+    private Employee employee;
 }

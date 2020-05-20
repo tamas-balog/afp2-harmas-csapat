@@ -3,10 +3,8 @@ package io.github.eperatis.controller;
 import io.github.eperatis.core.model.Order;
 import io.github.eperatis.core.service.OrderManager;
 import io.github.eperatis.dto.ListOrdersDTO;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -35,5 +33,10 @@ public class OrderController {
     @RequestMapping(value = "/pizzas/delivery-lists")
     public Collection<ListOrdersDTO> listPredationOrder() {
         return orderManager.deliveryOrder();
+    }
+
+    @RequestMapping(value = "/pizzas/delivery-lists/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Object> updateDelivery(@PathVariable Long id) {
+        return orderManager.updateDelivery(id);
     }
 }

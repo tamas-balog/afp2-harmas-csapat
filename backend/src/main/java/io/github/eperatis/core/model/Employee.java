@@ -1,18 +1,29 @@
 package io.github.eperatis.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "staff")
 @NoArgsConstructor
 public class Employee {
+
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     private int positionCode;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public int getPositionCode() { return positionCode; }
     public void setPositionCode(int positionCode) { this.positionCode = positionCode; }
 
@@ -34,5 +45,21 @@ public class Employee {
 
     private String password;
     public void setPassword(String password) { this.password = password; }
+
+    @OneToMany(
+            mappedBy = "employee",
+            cascade = CascadeType.ALL
+    )
+    @JsonIgnore
+    private Collection<Order> deliveries;
+
     public String getPassword() { return this.password; }
+
+    public Collection<Order> getDeliveries() {
+        return deliveries;
+    }
+
+    public void setDeliveries(Collection<Order> deliveries) {
+        this.deliveries = deliveries;
+    }
 }

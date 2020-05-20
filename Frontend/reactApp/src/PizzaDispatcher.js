@@ -38,26 +38,25 @@ dispatcher.register((payload)=>{
         then(resp=>{console.log(resp.data)}).catch(err => console.log(err))
     }
     if(payload.action.actionType === 'STAFF_SEARCH') {
-        if (payload.action.payload.id === "") {
-            axios.get('/employees').then((resp)=>{
-                Staffstore._staff = resp.data.filter((employee)=>{
-                    return employee.firstName.includes(payload.action.payload.firstName)
+        if (payload.action.payload.firstName === "") {
+            axios.get('/staff').then((resp)=>{
+                Staffstore._staff = resp.data.filter((staff)=>{
+                    return staff.firstName.includes(payload.action.payload.firstName)
                 });
                 Staffstore.emitChange();
             })
         }
         else {
-            axios.get('/employees').then((resp) => {
-                Staffstore._staff = resp.data.filter((employee) => {
-                    return employee.id == payload.action.payload.id;
+            axios.get('/staff').then((resp) => {
+                Staffstore._staff = resp.data.filter((staff) => {
+                    return staff.firstName == payload.action.payload.firstName;
                 });
                 Staffstore.emitChange();
             })
         }
     }
     if(payload.action.actionType === 'STAFF_REGISTER'){
-        axios.post('/employees',{
-            id : payload.action.payload.id,
+        axios.post('/staff/register',{
             positionCode : payload.action.payload.positionCode,
             firstName : payload.action.payload.firstName,
             lastName : payload.action.payload.lastName,
@@ -67,45 +66,21 @@ dispatcher.register((payload)=>{
         }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
     }
     if(payload.action.actionType ==='STAFF_DELETE'){
-        axios.delete('/employees/' + payload.action.payload.id).
-        then(resp=>{console.log(resp.data)}).catch(err => console.log(err))
-    }
-    if(payload.action.actionType === 'STAFF_UPDATE'){
-        if(payload.action.payload.id !==''){
-            axios.put('/employees/' + payload.action.payload.id,{
-                id : payload.action.payload.id,
-                positionCode : payload.action.payload.positionCode,
-                firstName : payload.action.payload.firstName,
-                lastName : payload.action.payload.lastName,
-                email : payload.action.payload.email,
-                phoneNumber : payload.action.payload.phoneNumber,
-                password : payload.action.payload.password
-            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
-        }
+        axios.delete('/staff/' + payload.action.payload.id)
+            .then(resp=>{console.log(resp.data)}).catch(err => console.log(err))
     }
     if(payload.action.actionType === 'DELIVERY_SEARCH') {
-        if (payload.action.payload.id === "") {
-            axios.get('/deliveries').then((resp)=>{
-                Deliverystore._deliveries = resp.data.filter((delivery)=>{
-                    return delivery.deliveredAt.includes(payload.action.payload.deliveredAt)
-                });
-                Deliverystore.emitChange();
-            })
-        }
-        else {
-            axios.get('/deliveries').then((resp) => {
-                Deliverystore._deliveries = resp.data.filter((delivery) => {
-                    return delivery.id == payload.action.payload.id;
-                });
-                Deliverystore.emitChange();
-            })
-        }
+        axios.get('/pizzas/delivery-lists').then((resp)=>{
+            Deliverystore._deliveries = resp.data.filter((delivery)=>{
+                return delivery;
+            });
+            Deliverystore.emitChange();
+        })
     }
     if(payload.action.actionType === 'DELIVERY_UPDATE'){
         if(payload.action.payload.id !==''){
-            axios.put('/deliveries/' + payload.action.payload.id,{
-                deliveredAt : payload.action.payload.deliveredAt,
-            }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
+            axios.put('/pizzas/delivery-lists/' + payload.action.payload.id)
+            .then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
         }
     }
     if(payload.action.actionType === 'PREPARATION_SEARCH') {

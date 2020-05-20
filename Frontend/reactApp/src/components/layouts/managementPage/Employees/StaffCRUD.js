@@ -5,7 +5,6 @@ class StaffCRUD extends React.Component{
     constructor(){
         super();
         this.state={
-            id : "",
             positionCode : "",
             firstName : "",
             lastName : "",
@@ -20,23 +19,7 @@ class StaffCRUD extends React.Component{
             <div>
                 <table>
                     <tr>
-                        <td><input
-                            type={"number"} min="0" placeholder="ID"
-                            value={this.state.id}
-                            onChange={(e)=>{
-                                let st = this.state;
-                                st.id = e.target.value;
-                                this.setState(st);}
-                            }
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                    StaffActions.search(this.state.id, this.state.firstName);
-                                }
-                            }}
-                        /></td>
-                    </tr>
-                    <tr>
-                        <td><input type={"number"} placeholder="Position code"
+                        <td><input type={"number"} placeholder="Position code" min={"1"} max={"3"}
                                    value={this.state.positionCode}
                                    onChange={(e)=>{
                                        let st = this.state;
@@ -100,42 +83,21 @@ class StaffCRUD extends React.Component{
                             colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={()=>{StaffActions.search(this.state.id, this.state.firstName)
+                                onClick={()=>{StaffActions.search(this.state.firstName)
                                 }}
-                            >Search by ID
+                            >Search
                             </button>
                             <button
                                 className="btn btn-info"
                                 onClick={()=>{StaffActions.register(
-                                    this.state.id,
                                     this.state.positionCode,
                                     this.state.firstName,
                                     this.state.lastName,
                                     this.state.email,
-                                    this.state.phoneNumber
+                                    this.state.phoneNumber,
+                                    this.state.password
                                 );window.location.reload();}}
                             >Register
-                            </button>
-                            <button
-                                className="btn btn-info"
-                                onClick={()=>{
-                                    StaffActions.update(
-                                    this.state.id,
-                                    this.state.positionCode,
-                                    this.state.firstName,
-                                    this.state.lastName,
-                                    this.state.email,
-                                    this.state.phoneNumber
-                                );window.location.reload();}}
-                            >Update
-                            </button>
-                            <button
-                                className="btn btn-info"
-                                onClick={()=>{
-                                    StaffActions.delete(this.state.id);
-                                    window.location.reload();}
-                                }
-                            >Delete by ID
                             </button>
                         </td>
                     </tr>
