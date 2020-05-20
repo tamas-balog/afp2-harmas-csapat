@@ -13,9 +13,8 @@ class NavbarElement extends React.Component{
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="/">Főoldal</Nav.Link>
-                        <Nav.Link href="/menu">Étlap</Nav.Link>
-                        <Nav.Link href="/cartpage">Kosár</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/menu">Menu</Nav.Link>
                     </Nav>
                     <Nav>
                         <NavDropdown title="Admin" id="basic-nav-dropdown">

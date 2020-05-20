@@ -26,7 +26,7 @@ public class OrderController {
 
     @RequestMapping(value = "/orders/record", method = RequestMethod.POST)
     public void recordOrder(@RequestBody Order object) throws IOException {
-
+        System.out.println(object);
         orderManager.recordOrder(object);
     }
 

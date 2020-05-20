@@ -5,6 +5,7 @@ import Staffstore from "./stores/StaffStore";
 import Deliverystore from "./stores/DeliveryStore";
 import Preparationstore from "./stores/PreparationStore";
 import Orderstore from "./stores/OrderStore";
+import Cartstore from "./stores/CartStore";
 
 class PizzaDispatcher extends Dispatcher{
 
@@ -104,6 +105,23 @@ dispatcher.register((payload)=>{
                 Orderstore.emitChange();
             })
         }
+    if(payload.action.actionType === 'ORDER_SUBMIT'){
+        axios.post('/orders/record', {
+            /*customer : {
+                firstName : payload.action.payload.firstName,
+                lastName : payload.action.payload.lastName,
+                postalCode : payload.action.payload.postalCode,
+                street : payload.action.payload.street,
+                streetNumber : payload.action.payload.streetNumber,
+                phoneNumber : payload.action.payload.phoneNumber,
+                comments : payload.action.payload.comments
+            },*/
+            customer : payload.action.payload.customer,
+            pizzas : payload.action.payload.pizzas
+        }).then(resp=>{console.log(resp.data)}).catch(err => {console.log(err) });
+        console.log(payload.action.payload.customer);
+        console.log(payload.action.payload.pizzas);
+    }
 });
 
 

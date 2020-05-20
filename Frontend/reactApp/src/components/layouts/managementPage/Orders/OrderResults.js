@@ -5,7 +5,7 @@ class OrdersResult extends React.Component{
 
     constructor(){
         super();
-        this.state = {orders : []};
+        this.state = {orders : [], id : 0};
         this._onChange = this._onChange.bind(this);
     }
 
@@ -40,7 +40,7 @@ class OrdersResult extends React.Component{
                 {
                     this.state.orders.map((order)=>{
                         return(
-                            <tr key={order.customer.firstName}>
+                            <tr key={order.id}>
                                 <td>{order.customer.firstName}</td>
                                 <td>{order.customer.lastName}</td>
                                 <td>{order.customer.postalCode}</td>
@@ -49,7 +49,8 @@ class OrdersResult extends React.Component{
                                 <td>{order.customer.comments}</td>
                                 <td>{order.delivered ? "Delivered":"Not delivered"}</td>
                                 <td><ol>{order.pizzas.map((pizza)=>{
-                                    return (<li key={order.customer.firstName+pizza.pizza.name}>{pizza.pizza.name}</li>)
+
+                                    return (<li key={Math.floor(Math.random() * 10000) + 1}>{pizza.pizza.name}</li>)
                                 })}</ol></td>
                             </tr>
                         );

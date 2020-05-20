@@ -24,6 +24,7 @@ import PreparationPage from "./components/layouts/managementPage/Preparations/Pr
 import OrdersPage from "./components/layouts/managementPage/Orders/OrdersPage";
 import PizzasPage from "./components/layouts/managementPage/Pizzas/PizzasPage";
 import Login from "./components/auth/login.component"
+import Pizzastore from "./stores/PizzaStore";
 
 function Menu() {
     return(
@@ -37,6 +38,10 @@ function Menu() {
 }
 
 class App extends Component {
+    constructor() {
+        super();
+    }
+
     render() {
         return <Router>
             <Header/>
@@ -58,6 +63,7 @@ class App extends Component {
             <Redirect to="/404"/>
             </Switch>
             </div>
+            <Footer/>
         </Router>
     }
 }

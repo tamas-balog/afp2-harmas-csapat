@@ -9,7 +9,7 @@ function Footer() {
                         <div className="row">
                         {/*Column 1*/}
                         <div className="col-md-3 col-sm-6">
-                            <h3>Elérhetőségeink</h3>
+                            <h3>Contact us</h3>
                             <ul className="list-unstyled">
                                 <li>3300, Eger</li>
                                 <li>Dobó utca 7.</li>
@@ -19,17 +19,17 @@ function Footer() {
                         </div>
                     {/*Column 2*/}
                     <div className="col-md-3 col-sm-6">
-                        <h4>Hasznos linkek</h4>
+                        <h4>Useful pages</h4>
                         <ul className="list-unstyled">
                             <li><a href="/">Privacy & Policy</a></li>
-                            <li><a href="/">Kiszállítási információk</a></li>
-                            <li><a href="/">Felhasználói végszerződés</a></li>
-                            <li><a href="/">Visszafizetési feltételek</a></li>
+                            <li><a href="/">Delivery information</a></li>
+                            <li><a href="/">User end license</a></li>
+                            <li><a href="/">Return money policy</a></li>
                         </ul>
                     </div>
                     {/*Column 3*/}
                     <div className="col-md-3 col-sm-6">
-                        <h4>Itt is megtalálsz minket</h4>
+                        <h4>Find us here</h4>
                         <ul className="list-unstyled">
                             <li><a href="https://www.facebook.com/">Facebook</a></li>
                             <li><a href="https://www.instagram.com/">Instagram</a></li>

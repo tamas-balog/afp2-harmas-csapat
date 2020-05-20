@@ -23,6 +23,7 @@ public class OrderDeserializer extends JsonDeserializer<Order> {
         ObjectCodec oc = p.getCodec();
 
         JsonNode node = oc.readTree(p);
+        System.out.println(node);
 
         Customer customer = new Customer();
         Order order = new Order();
