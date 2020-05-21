@@ -70,7 +70,7 @@ dispatcher.register((payload)=>{
             email : payload.action.payload.email,
             phoneNumber : payload.action.payload.phoneNumber,
             password : payload.action.payload.password
-        }).then(resp=>{alert(resp.data)}).catch(err => {alert(err.response.data.message) });
+        }).then(resp=>{if(!alert(resp.data)){window.location.reload();}}).catch(err => {alert(err.response.data.message) });
     }
     if(payload.action.actionType ==='STAFF_DELETE'){
         axios.delete('/staff/' + payload.action.payload.id)
@@ -112,15 +112,6 @@ dispatcher.register((payload)=>{
         }
     if(payload.action.actionType === 'ORDER_SUBMIT'){
         axios.post('/orders/record', {
-            /*customer : {
-                firstName : payload.action.payload.firstName,
-                lastName : payload.action.payload.lastName,
-                postalCode : payload.action.payload.postalCode,
-                street : payload.action.payload.street,
-                streetNumber : payload.action.payload.streetNumber,
-                phoneNumber : payload.action.payload.phoneNumber,
-                comments : payload.action.payload.comments
-            },*/
             customer : payload.action.payload.customer,
             pizzas : payload.action.payload.pizzas
         }).then(resp=>{if(!alert(resp.data)){window.location.reload();}}).catch(err => {alert(err.response.data.message) });
