@@ -9,7 +9,6 @@ class PizzasPage extends React.Component {
                 <div className={"row"}>
                     <div className="col-md-4"></div>
                     <div className="col-md-10">
-                        <div><h1>PIZZAS</h1></div>
                         <div className="row"><PizzasCRUD/></div>
                         <div className="row"><PizzasResults/></div>
                     </div>

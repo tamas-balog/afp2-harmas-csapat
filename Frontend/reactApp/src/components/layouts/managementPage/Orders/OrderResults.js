@@ -1,5 +1,6 @@
 import React from 'react';
 import Orderstore from "../../../../stores/OrderStore";
+import OrderActions from '../../../../actions/OrderActions';
 
 class OrdersResult extends React.Component{
 
@@ -11,10 +12,12 @@ class OrdersResult extends React.Component{
 
     _onChange(){
         this.setState({orders : Orderstore._orders})
+        OrderActions.list();
     }
 
     componentDidMount(){
         Orderstore.addChangeListener(this._onChange)
+        OrderActions.list();
     }
 
     componentWillUnmount(){

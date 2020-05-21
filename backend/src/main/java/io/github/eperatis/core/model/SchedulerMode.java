@@ -2,8 +2,6 @@ package io.github.eperatis.core.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Entity;
-
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum SchedulerMode {
     BYORDER("Schedule by order", "The staff makes pizzas of the same orders so the delivery time could be reduced."),

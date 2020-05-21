@@ -83,9 +83,9 @@ class StaffCRUD extends React.Component{
                             colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={()=>{StaffActions.search(this.state.firstName)
+                                onClick={()=>{StaffActions.search(this.state.firstName, this.state.lastName)
                                 }}
-                            >Search
+                            >Search by name
                             </button>
                             <button
                                 className="btn btn-info"
@@ -96,7 +96,7 @@ class StaffCRUD extends React.Component{
                                     this.state.email,
                                     this.state.phoneNumber,
                                     this.state.password
-                                );window.location.reload();}}
+                                );}}
                             >Register
                             </button>
                         </td>

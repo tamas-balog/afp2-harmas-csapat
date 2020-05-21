@@ -14,10 +14,12 @@ class PreparationsResult extends React.Component{
 
     _onChange(){
         this.setState({preparations : Preparationstore._preparations})
+        PreparationActions.list();
     }
 
     componentDidMount(){
         Preparationstore.addChangeListener(this._onChange)
+        PreparationActions.list();
     }
 
     componentWillUnmount(){
@@ -45,7 +47,7 @@ class PreparationsResult extends React.Component{
                                 onClick={()=>{
                                     PreparationActions.update(
                                         preparation.id,
-                                    );window.location.reload();}  }
+                                    );}  }
                                 >Done
                                 </button>
                                 </td>

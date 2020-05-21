@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import PizzaSearchActions from "../../../actions/PizzaSearchActions";
+import React from 'react';
+import PizzaActions from "../../../actions/PizzaActions";
 import Cartstore from '../../../stores/CartStore';
-import PizzaSearchResult from "../buyingPage/PizzaSearchResults";
 import OrderActions from "../../../actions/OrderActions";
 
 class PizzaSearchBar extends React.Component {
@@ -109,7 +108,7 @@ class PizzaSearchBar extends React.Component {
                     <td>Phone number:</td>
                     <td>
                         <input
-                            type={"number"}
+                            type={"text"}
                             value={this.state.customer.phoneNumber}
                             onChange={(e) => {
                                 let st = this.state;
@@ -180,7 +179,7 @@ class PizzaSearchBar extends React.Component {
                             <button
                                 className="btn btn-info"
 
-                                onClick={() => {PizzaSearchActions.search(this.state.name, this.state.ingredients);
+                                onClick={() => {PizzaActions.search(this.state.name, this.state.ingredients);
                                 }}
                             >Search
                             </button>

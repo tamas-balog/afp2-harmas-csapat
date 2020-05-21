@@ -5,7 +5,6 @@ import {
     BrowserRouter as Router,
     Route,
     Switch,
-    Link,
     Redirect
 } from 'react-router-dom';
 
@@ -15,7 +14,6 @@ import Navbar from "./components/navbar";
 import HomePage from "./components/layouts/HomePage";
 import PizzaSearch from "./components/layouts/buyingPage/PizzaSearchBar";
 import PizzaSearchResult from "./components/layouts/buyingPage/PizzaSearchResults";
-import CartPage from "./components/layouts/buyingPage/CartPage";
 import NotFound from "./components/layouts/404";
 import Footer from "./components/footer";
 import EmployeesPage from "./components/layouts/managementPage/Employees/EmployeesPage";
@@ -23,8 +21,6 @@ import DeliveriesPage from "./components/layouts/managementPage/Deliveries/Deliv
 import PreparationPage from "./components/layouts/managementPage/Preparations/PreparationsPage"
 import OrdersPage from "./components/layouts/managementPage/Orders/OrdersPage";
 import PizzasPage from "./components/layouts/managementPage/Pizzas/PizzasPage";
-import Login from "./components/auth/login.component"
-import Pizzastore from "./stores/PizzaStore";
 
 function Menu() {
     return(
@@ -38,10 +34,6 @@ function Menu() {
 }
 
 class App extends Component {
-    constructor() {
-        super();
-    }
-
     render() {
         return <Router>
             <Header/>
@@ -54,11 +46,7 @@ class App extends Component {
             <Route exact path="/preppizzas" component={PreparationPage}/>
             <Route exact path="/orders" component={OrdersPage}/>
             <Route exact path="/pizzas" component={PizzasPage}/>
-            <Route exact path="/pizzasearch" component={PizzaSearch}/>
-            <Route exact path="/pizzasearchres" component={PizzaSearchResult}/>
             <Route exact path="/menu" component={Menu}/>
-            <Route exact path="/cartpage" component={CartPage}/>
-            <Route exact path="/login" component={Login}/>
             <Route exact path="/404" component={NotFound}/>
             <Redirect to="/404"/>
             </Switch>

@@ -1,6 +1,5 @@
 package io.github.eperatis.core.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.github.eperatis.service.OrderDeserializer;
 import lombok.Getter;
@@ -28,7 +27,6 @@ public class Order {
     private boolean delivered;
 
     @ManyToOne
-    //@JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
 
     @OneToMany(

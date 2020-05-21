@@ -1,5 +1,4 @@
 import React from "react";
-import PreparationsCRUD from "./PreparationsCRUD"
 import PreparationsResults from "./PreparationsResults";
 
 class DeliveriesPage extends React.Component {
@@ -10,7 +9,6 @@ class DeliveriesPage extends React.Component {
                     <div className="col-md-4"></div>
                     <div className="col-md-10">
                         <div><h1>PREPARATIONS</h1></div>
-                        <div className="row"><PreparationsCRUD/></div>
                         <div className="row"><PreparationsResults/></div>
                     </div>
                 </div>

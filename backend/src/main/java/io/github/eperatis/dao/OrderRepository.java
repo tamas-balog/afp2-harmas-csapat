@@ -7,8 +7,6 @@ import java.util.Collection;
 
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
-    Collection<Order> findAllByDeliveredFalse();
-
     Collection<Order> findAllByDeliveredFalseAndEmployeeIsNull();
 
     Collection<Order> findAllByDeliveredFalseAndEmployeeIsNotNull();

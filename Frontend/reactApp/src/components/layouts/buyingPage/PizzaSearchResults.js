@@ -1,14 +1,12 @@
 import React from 'react';
 import Pizzastore from '../../../stores/PizzaStore';
 import Cartstore from '../../../stores/CartStore';
-import PizzaSearchActions from "../../../actions/PizzaSearchActions";
 
 
 class PizzaSearchResults extends React.Component{
     toCart(id) {
         var pizza = {id : id}
         Cartstore.addPizza(pizza);
-        console.log(Cartstore._orders);
     }
 
     constructor() {

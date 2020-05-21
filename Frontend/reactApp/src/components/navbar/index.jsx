@@ -1,7 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, BrowserRouter, browserHistory, Switch, Link} from 'react-router-dom';
-import { Nav, NavItem, Navbar, Badge, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
-import PizzaSearchActions from "../../actions/PizzaSearchActions";
+import { Nav, Navbar, NavDropdown} from "react-bootstrap";
 
 
 class NavbarElement extends React.Component{
@@ -17,7 +15,7 @@ class NavbarElement extends React.Component{
                         <Nav.Link href="/menu">Menu</Nav.Link>
                     </Nav>
                     <Nav>
-                        <NavDropdown title="Admin" id="basic-nav-dropdown">
+                        <NavDropdown title="Staff" id="basic-nav-dropdown">
                            <NavDropdown.Item href="/employees">Employees</NavDropdown.Item>
                             <NavDropdown.Item href="/deliveries">Deliveries</NavDropdown.Item>
                             <NavDropdown.Item href="/preppizzas">Preparation List</NavDropdown.Item>

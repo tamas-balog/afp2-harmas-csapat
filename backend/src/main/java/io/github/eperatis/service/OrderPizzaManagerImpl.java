@@ -29,18 +29,6 @@ public class OrderPizzaManagerImpl implements OrderPizzaManager {
     }
 
     @Override
-    public Collection<OrderPizza> listOrderPizzas() {
-
-        return new ArrayList<>((Collection<? extends OrderPizza>) repository.findAll());
-    }
-
-    @Override
-    public void recordOrderPizza(OrderPizza orderPizza) {
-
-        repository.save(orderPizza);
-    }
-
-    @Override
     public Collection<PreparationListDTO> preparationOrder() {
         ArrayList<PreparationListDTO> preparationListDTOS = new ArrayList<>();
         if (schedulerManager.listChosen().isPresent()) {
@@ -63,7 +51,7 @@ public class OrderPizzaManagerImpl implements OrderPizzaManager {
             repository.save(orderPizza);
 
             Collection<Order> temp = orderManager.listNotDeliveredNotAssigned();
-            Collection<Order> neededToDeliver = new ArrayList<Order>();
+            Collection<Order> neededToDeliver = new ArrayList<>();
 
             for (int i = 0; i < temp.size(); i++) {
                 Order order = (Order)temp.toArray()[i];
@@ -79,10 +67,9 @@ public class OrderPizzaManagerImpl implements OrderPizzaManager {
 
     @Override
     public boolean allIsPrepared(Order order) {
-        Collection<OrderPizza> valami = repository.findAllByOrderEquals(order);
-        //OrderPizza[] containingOrder = (OrderPizza[]) repository.findAllByOrderContaining(order).toArray();
-        for (int i = 0; i < valami.size(); i++) {
-            OrderPizza orderPizza = (OrderPizza)valami.toArray()[i];
+        Collection<OrderPizza> allByOrderEquals = repository.findAllByOrderEquals(order);
+        for (int i = 0; i < allByOrderEquals.size(); i++) {
+            OrderPizza orderPizza = (OrderPizza)allByOrderEquals.toArray()[i];
             if (!orderPizza.isPrepared()) {
                 return false;
             }

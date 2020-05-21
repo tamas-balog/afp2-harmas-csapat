@@ -4,8 +4,6 @@ import io.github.eperatis.core.model.Ingredient;
 import io.github.eperatis.core.service.IngredientManager;
 import io.github.eperatis.dao.IngredientRepository;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Optional;
 
 public class IngredientManagerImpl implements IngredientManager {
@@ -14,11 +12,6 @@ public class IngredientManagerImpl implements IngredientManager {
 
     public IngredientManagerImpl(IngredientRepository repository) {
         this.repository = repository;
-    }
-
-    @Override
-    public Collection<Ingredient> listIngredients() {
-        return new ArrayList<>((Collection<? extends Ingredient>) repository.findAll());
     }
 
     @Override
@@ -42,16 +35,4 @@ public class IngredientManagerImpl implements IngredientManager {
         return repository.findByName(name);
     }
 
-    @Override
-    public void updateIngredient(Ingredient newIngredient, Long id) {
-        repository.findById(id)
-            .map(ingredient -> {
-                ingredient.setName(newIngredient.getName());
-                return repository.save(ingredient);
-            })
-            .orElseGet(() -> {
-                newIngredient.setId(id);
-                return repository.save(newIngredient);
-            });
-    }
 }

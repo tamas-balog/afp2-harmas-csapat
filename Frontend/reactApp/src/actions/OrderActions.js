@@ -1,5 +1,4 @@
 import dispatcher from '../PizzaDispatcher'
-import Cartstore from "../stores/CartStore";
 
 class OrderListActions{
     list(){
@@ -8,21 +7,6 @@ class OrderListActions{
             payload : {}
         });
     }
-
-    /*register(firstName, lastName, postalCode, street, streetNumber, phoneNumber, comments){
-        dispatcher.handleViewAction({
-            actionType : 'ORDER_SUBMIT',
-            payload : {
-                firstName : firstName,
-                lastName : lastName,
-                postalCode : postalCode,
-                street : street,
-                streetName : streetNumber,
-                phoneNumber : phoneNumber,
-                comments : comments
-            }
-        });
-    }*/
 
     register(customer, pizzas){
         dispatcher.handleViewAction({

@@ -2,6 +2,16 @@ import dispatcher from '../PizzaDispatcher'
 
 class PizzaActions{
 
+    search(name, ingredients){
+        dispatcher.handleViewAction({
+            actionType : 'PIZZA_SEARCH',
+            payload : {
+                name : name,
+                ingredients : ingredients
+            }
+        });
+    }
+
     delete(id){
         dispatcher.handleViewAction({
             actionType : 'PIZZA_DELETE',

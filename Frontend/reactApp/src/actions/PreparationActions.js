@@ -18,4 +18,4 @@ class PreparationActions{
     }
 }
 
-export default new PreparationActions;
+export default new PreparationActions();

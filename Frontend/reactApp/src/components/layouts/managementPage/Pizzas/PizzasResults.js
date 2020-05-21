@@ -17,7 +17,6 @@ class PizzasResults extends React.Component{
     componentDidMount() {
         Pizzastore.addChangeListener(this._onChange);
     }
-
     componentWillUnmount() {
         Pizzastore.removeChangeListener(this._onChange);
     }
@@ -42,14 +41,14 @@ class PizzasResults extends React.Component{
                                 <td><ol>{pizza.ingredients.map((ingredient)=>{
                                     return (<li key={pizza.id+ingredient.name}>{ingredient.name}</li>)
                                 })}</ol></td>
-                            <button
-                                className="btn btn-info"
+                                <td><button
+                                    className="btn btn-info"
                                 onClick={()=>{
                                     PizzaActions.delete(pizza.id);
                                     window.location.reload();}
                                 }
                             >Delete
-                            </button>
+                            </button></td>
                             </tr>
                         );
                     })

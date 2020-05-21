@@ -4,7 +4,6 @@ import io.github.eperatis.core.model.ErrorMessage;
 import io.github.eperatis.core.model.Pizza;
 import io.github.eperatis.core.service.PizzaManager;
 import io.github.eperatis.dto.ListPizzasDTO;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

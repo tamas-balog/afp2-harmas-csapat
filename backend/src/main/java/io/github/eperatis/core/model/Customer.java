@@ -20,10 +20,6 @@ public class Customer {
 
     private String lastName;
 
-//    @ManyToOne
-//    @JoinColumn(name = "city_id")
-//    private City city;
-
     private int postalCode;
 
     private String street;

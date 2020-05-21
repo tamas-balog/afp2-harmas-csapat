@@ -1,6 +1,7 @@
 import React from 'react';
-import PizzaSearchActions from "../../../../actions/PizzaSearchActions";
 import PizzaActions from "../../../../actions/PizzaActions";
+import SchedulersActions from '../../../../actions/SchedulersActions';
+import Schedulerstore from '../../../../stores/SchedulerStore';
 
 class PizzasCRUD extends React.Component {
 
@@ -11,26 +12,58 @@ class PizzasCRUD extends React.Component {
             ingredients: [{
                 name : "",
             }],
+            chosen : []      
         };
+        this._onChange = this._onChange.bind(this);
+        SchedulersActions.list();
+    }
+    _onChange(){
+        this.setState({chosen : Schedulerstore._schedulers});
+        SchedulersActions.list();
+    }
+
+    componentDidMount() {
+        Schedulerstore.addChangeListener(this._onChange);
     }
 
     addIngredients(){
         this.setState({ingredients : [...this.state.ingredients, ""]})
     }
-    handleChange(e,id){
-        this.state.ingredients[id] = {}
-        this.state.ingredients[id].name = e.target.value
+    handleChange(e,index){
+        this.state.ingredients[index] = {}
+        this.state.ingredients[index].name = e.target.value
         this.setState({ingredients: this.state.ingredients})
     }
 
     handleRemove(id){
         this.state.ingredients.splice(id,1)
-       this.setState({ingredients: this.state.ingredients})
+        this.setState({ingredients: this.state.ingredients})
     }
 
     render() {
         return (
             <div>
+                <h1>SCHEDULERS</h1>
+
+                <div>{this.state.chosen.map((chosen)=>{
+                    return (<p key={chosen.chosen.name}>{chosen.chosen.description}</p>)
+                }
+                )}</div>
+                <select id="chosen">
+                    <option value="ByPizza">By pizza</option>
+                    <option value="ByOrder">By order</option>
+                </select>
+                <button
+                    className="btn btn-info"
+                    onClick={()=>{
+                        SchedulersActions.list();
+                        SchedulersActions.choose(
+                            document.getElementById("chosen").value
+                    );}}
+                >Change
+                </button>
+
+                <h1>PIZZAS</h1>
                 <table>
                     <tr>
                         <td>
@@ -45,7 +78,7 @@ class PizzasCRUD extends React.Component {
                                 }
                                 onKeyDown={(e) => {
                                     if (e.key === 'Enter') {
-                                        PizzaSearchActions.search(this.state.name, this.state.ingredients);
+                                        PizzaActions.search(this.state.name);
                                     }
                                 }}
                             /></td>
@@ -65,14 +98,14 @@ class PizzasCRUD extends React.Component {
                     </tr>
                     <tr>
                     {
-                        this.state.ingredients.map((ingredient, id)=>{
+                        this.state.ingredients.map((ingredient, index)=>{
                             return (
-                                <div key={id}>
-                                    <input onChange={(e)=> this.handleChange(e,id)}
+                                <div key={index}>
+                                    <input onChange={(e)=> this.handleChange(e,index)}
                                            value = {ingredient.name}
                                            type={"text"}
                                            placeholder={"Ingredient"}/>
-                                           <button  className="btn btn-warning" onClick={()=>this.handleRemove(id)} >Remove </button>
+                                           <button  className="btn btn-warning" onClick={()=>this.handleRemove(index)} >Remove </button>
                                 </div>
                             )
                         })
@@ -82,9 +115,9 @@ class PizzasCRUD extends React.Component {
                         <td colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={() => {PizzaSearchActions.search(this.state.name, this.state.ingredients)
+                                onClick={() => {PizzaActions.search(this.state.name)
                                 }}
-                            >Search
+                            >Search by name
                             </button>
                             <button
                                 className="btn btn-info"

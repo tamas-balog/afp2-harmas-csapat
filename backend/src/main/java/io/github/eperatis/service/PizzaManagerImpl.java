@@ -31,22 +31,6 @@ public class PizzaManagerImpl implements PizzaManager {
         return listPizzasDto;
     }
 
-//    @Override
-//    public Collection<PreparationListDTO> listPreparationOrder() {
-//        ModelMapper modelMapper = new ModelMapper();
-//        if (schedulerManager.listChosen().isPresent()) {
-//            if (schedulerManager.listChosen().get().getChosen() == SchedulerMode.BYORDER) {
-//                ArrayList<PreparationListDTO> preparationListDTOS = new ArrayList<>();
-//                repository.findAll().forEach(x -> preparationListDTOS.add(modelMapper.map(x, PreparationListDTO.class)));
-//                return preparationListDTOS;
-//            }
-//        }
-//        ArrayList<PreparationListDTO> preparationListDTOS = new ArrayList<>();
-//        repository.findAll().forEach(x -> preparationListDTOS.add(modelMapper.map(x, PreparationListDTO.class)));
-//        return preparationListDTOS;
-//    }
-
-
     @Override
     public void recordPizza(Pizza pizza) {
 

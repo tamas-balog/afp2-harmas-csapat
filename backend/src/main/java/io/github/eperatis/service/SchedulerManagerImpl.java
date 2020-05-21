@@ -15,9 +15,11 @@ public class SchedulerManagerImpl implements SchedulerManager {
 
     public SchedulerManagerImpl(SchedulerRepository repository) {
         this.repository = repository;
-        Scheduler scheduler = new Scheduler();
-        scheduler.setChosen(SchedulerMode.BYORDER);
-        repository.save(scheduler);
+        if (!listSchedulers().iterator().hasNext()) {
+            Scheduler scheduler = new Scheduler();
+            scheduler.setChosen(SchedulerMode.BYORDER);
+            repository.save(scheduler);
+        }
     }
 
     @Override

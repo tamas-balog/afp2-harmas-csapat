@@ -12,10 +12,12 @@ class DeliveriesResult extends React.Component{
 
     _onChange(){
         this.setState({deliveries : Deliverystore._deliveries})
+        DeliveriesActions.list();
     }
 
     componentDidMount(){
         Deliverystore.addChangeListener(this._onChange)
+        DeliveriesActions.list();
     }
 
     componentWillUnmount(){
@@ -58,7 +60,7 @@ class DeliveriesResult extends React.Component{
                                 onClick={()=>{
                                     DeliveriesActions.update(
                                         delivery.id,
-                                    );window.location.reload();}}
+                                    );}}
                             >Done
                             </button>
 

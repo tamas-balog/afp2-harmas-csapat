@@ -18,4 +18,4 @@ class DeliveriesActions{
     }
 }
 
-export default new DeliveriesActions;
+export default new DeliveriesActions();

@@ -1,11 +1,12 @@
 import dispatcher from '../PizzaDispatcher'
 
 class StaffActions{
-    search(firstName){
+    search(firstName, lastName){
         dispatcher.handleViewAction({
             actionType : 'STAFF_SEARCH',
             payload : {
-                firstName : firstName
+                firstName : firstName,
+                lastName : lastName
             }
         });
     }

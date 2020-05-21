@@ -33,7 +33,9 @@ public class OrderDeserializer extends JsonDeserializer<Order> {
         customer.setStreet(node.get("customer").get("street").asText());
         customer.setStreetNumber(node.get("customer").get("streetNumber").asInt());
         customer.setPhoneNumber(node.get("customer").get("phoneNumber").asText());
-        customer.setComments(node.get("customer").get("comments").asText());
+        if (node.get("customer").has("comments")) {
+            customer.setComments(node.get("customer").get("comments").asText());
+        }
         order.setCustomer(customer);
 
         if (node.has("delivered")) {

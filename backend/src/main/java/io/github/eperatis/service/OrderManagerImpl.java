@@ -4,11 +4,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.eperatis.core.model.Employee;
 import io.github.eperatis.core.model.Order;
-import io.github.eperatis.core.model.OrderPizza;
-import io.github.eperatis.core.model.Pizza;
 import io.github.eperatis.core.service.EmployeeManager;
 import io.github.eperatis.core.service.OrderManager;
-import io.github.eperatis.core.service.OrderPizzaManager;
 import io.github.eperatis.dao.OrderRepository;
 import io.github.eperatis.dto.ListOrdersDTO;
 import org.modelmapper.ModelMapper;
@@ -69,7 +66,7 @@ public class OrderManagerImpl implements OrderManager {
     @Override
     public Collection<ListOrdersDTO> deliveryOrder() {
         ArrayList<ListOrdersDTO> listOrdersDTOS = new ArrayList<>();
-        repository.findAllByDeliveredFalseAndEmployeeIsNotNull().forEach(x -> listOrdersDTOS.add(modelMapper.map(x, ListOrdersDTO.class)));;//.forEach(x -> deliveryListDTOS.add(modelMapper.map(x, Order.class)));
+        repository.findAllByDeliveredFalseAndEmployeeIsNotNull().forEach(x -> listOrdersDTOS.add(modelMapper.map(x, ListOrdersDTO.class)));
         return listOrdersDTOS;
     }
 

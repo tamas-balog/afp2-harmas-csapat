@@ -33,11 +33,6 @@ public class WebConfig {
     }
 
     @Bean
-    public CustomerManager customerManager(CustomerRepository repository) {
-        return new CustomerManagerImpl(repository);
-    }
-
-    @Bean
     public OrderPizzaManager orderPizzaManager(OrderPizzaRepository repository,
                                                SchedulerManager schedulerManager,
                                                OrderManager orderManager) {
